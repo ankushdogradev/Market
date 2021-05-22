@@ -11,6 +11,11 @@
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
 }
 
 .fa-times,
@@ -91,7 +96,7 @@ button:active {
 
   .nav-links {
     display: table;
-    text-align: ceneter;
+    text-align: center;
     padding: 2rem;
     width: 100%;
   }
