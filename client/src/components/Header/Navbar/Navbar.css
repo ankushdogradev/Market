@@ -73,12 +73,12 @@ button:active {
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-device-width: 414px) {
+@media only screen and (max-device-width: 25.875rem) {
   .nav-menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 500px;
+    height: 250px;
     position: absolute;
     top: 80px;
     left: -100%;
@@ -125,7 +125,17 @@ button:active {
 }
 
 /* Desktop */
-@media only screen and (min-device-width: 815px) {
+@media only screen and (min-width: 77.5rem) {
+  .nav-logo {
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    padding-right: 2rem;
+    padding-left: 1rem;
+  }
+}
+
+@media only screen and (min-width: 29.8125rem) {
   .nav-logo {
     justify-self: start;
     margin-left: 20px;
@@ -136,12 +146,12 @@ button:active {
 }
 
 /* iPads (portrait) ----------- */
-@media only screen and (min-device-width: 415px) and (max-device-width: 1024px) and (orientation: portrait) {
+@media only screen and (min-width: 26.563rem) and (max-width: 77.5rem) and (orientation: portrait) {
   .nav-menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 500px;
+    height: 250px;
     position: absolute;
     top: 80px;
     left: -100%;

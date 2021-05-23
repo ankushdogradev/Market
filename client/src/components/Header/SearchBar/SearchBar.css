@@ -40,3 +40,9 @@
 .search-input:hover .fa-search {
   color: var(--accent-color);
 }
+
+/* @media only screen and (min-width: 26.563rem) and (max-width: 77.5rem) and (orientation: portrait) {
+  .search-input input {
+    display: block;
+  }
+} */

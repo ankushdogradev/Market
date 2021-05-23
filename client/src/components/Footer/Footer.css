@@ -48,16 +48,6 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-@media only screen and (min-width: 29.8125rem) {
-  .foo-main {
-    justify-content: space-evenly;
-  }
-}
-@media only screen and (min-width: 77.5rem /* 1240px */) {
-  .foo-main {
-    justify-content: space-evenly;
-  }
-}
 
 .foo-main-col {
   padding: 1.25rem;
@@ -68,4 +58,24 @@ body {
 .foo-sec-row {
   display: flex;
   justify-content: center;
+}
+
+/* Media Querry */
+@media only screen and (min-width: 29.8125rem) {
+  .foo-main {
+    justify-content: space-evenly;
+  }
+  .foo-sec-row {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 77.5rem /* 1240px */) {
+  .foo-main {
+    justify-content: space-evenly;
+  }
+  .foo-sec-row {
+    display: flex;
+    justify-content: center;
+  }
 }

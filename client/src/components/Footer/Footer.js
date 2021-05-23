@@ -55,3 +55,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// Fix Media querry
