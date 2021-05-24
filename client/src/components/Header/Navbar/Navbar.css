@@ -9,7 +9,7 @@
 
 .nav-logo {
   justify-self: start;
-  margin-left: 20px;
+  margin-left: 3rem;
   cursor: pointer;
   transition: transform 0.5s ease;
 }
@@ -109,8 +109,8 @@ button:active {
 
   .nav-logo {
     display: grid;
-    justify-self: start;
-    margin-left: 20px;
+    justify-self: left;
+    margin-left: 0rem;
     cursor: pointer;
   }
 
@@ -128,7 +128,7 @@ button:active {
 @media only screen and (min-width: 77.5rem) {
   .nav-logo {
     justify-self: start;
-    margin-left: 20px;
+    margin-left: 3rem;
     cursor: pointer;
     padding-right: 2rem;
     padding-left: 1rem;
@@ -138,7 +138,7 @@ button:active {
 @media only screen and (min-width: 29.8125rem) {
   .nav-logo {
     justify-self: start;
-    margin-left: 20px;
+    margin-left: 3rem;
     cursor: pointer;
     padding-right: 2rem;
     padding-left: 1rem;

@@ -14,7 +14,6 @@ footer a {
 }
 
 a:hover {
-  /* text-decoration: underline; */
   font-weight: bold;
 }
 
@@ -38,9 +37,6 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
-/* .container {
-  flex: 1;
-} */
 
 /* Main Footer */
 .foo-main {
