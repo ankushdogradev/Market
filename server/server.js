@@ -4,6 +4,9 @@ require("dotenv").config({
 
 const express = require("express");
 const connectDB = require("./config/db");
+const app = express();
+
+connectDB();
 
 // Routes
 const productRoutes = require("./routes/productRoutes");
@@ -11,12 +14,12 @@ const orderRoutes = require("./routes/orderRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
 const userRoutes = require("./routes/userRoutes");
 
-connectDB();
-const app = express();
-
 app.use("/api/", productRoutes);
+// app.use("/api/", orderRoutes);
+// app.use("/api/", uploadRoutes);
+// app.use("/api/", userRoutes);
 
-// Checks If the route is not defined and passes 404 error
+// Check's If the route is not defined and passes 404 error
 app.use((req, res, next) => {
   const error = new Error(`Requested URL: ${req.path} not found!`);
   error.status = 404;

@@ -21,3 +21,7 @@
 body {
   background-color: var(--main-bg-color);
 }
+
+.main {
+  padding-bottom: auto;
+}

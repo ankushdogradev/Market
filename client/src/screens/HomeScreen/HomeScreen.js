@@ -10,7 +10,7 @@ const HomeScreen = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get("/api/products");
-      setProducts(data);
+      setProducts(data.products);
     };
 
     fetchProducts();
@@ -19,10 +19,13 @@ const HomeScreen = () => {
   return (
     <>
       <h1>Best Selling Products</h1>
-      {/* {products.map((product) => {
-        console.log(product.name);
-      })} */}
-      <Product />
+      <div className="prod-row">
+        {products.map((product) => (
+          <div className="prod-col" key={product._id}>
+            <Product product={product} />
+          </div>
+        ))}
+      </div>
     </>
   );
 };

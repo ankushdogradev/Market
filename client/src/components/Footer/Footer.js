@@ -14,13 +14,31 @@ const Footer = () => {
             <h2>Get to know us</h2>
             <ul>
               <li>
-                <a href="#">About us</a>
+                <a
+                  href="https://github.com/ankushdogradev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  About us
+                </a>
               </li>
               <li>
-                <a href="#">Shipping</a>
+                <a
+                  href="https://github.com/ankushdogradev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Shipping
+                </a>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <a
+                  href="https://github.com/ankushdogradev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Contact Us
+                </a>
               </li>
             </ul>
           </div>
@@ -28,10 +46,22 @@ const Footer = () => {
             <h2>Contact Us</h2>
             <ul>
               <li>
-                <a href="#">Github</a>
+                <a
+                  href="https://github.com/ankushdogradev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
               </li>
               <li>
-                <a href="#">linkedin</a>
+                <a
+                  href="https://github.com/ankushdogradev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  linkedin
+                </a>
               </li>
               <li>
                 <p>Email: ankushdogradev@gmail.com</p>
