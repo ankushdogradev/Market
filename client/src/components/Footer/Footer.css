@@ -1,23 +1,4 @@
-h2 {
-  color: var(--accent-color);
-  text-align: left;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-footer a {
-  text-decoration: none;
-  color: var(--text-color);
-}
-
-a:hover {
-  font-weight: bold;
-}
-
-footer {
+.foo {
   background-color: var(--second-bg-color);
   color: var(--text-color);
 }
@@ -29,13 +10,6 @@ footer {
 
 .foo-main-logo:hover {
   transform: scale(1.2);
-}
-
-/* Sticks Footer to bottom */
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
 }
 
 /* Main Footer */
@@ -54,6 +28,27 @@ body {
 .foo-sec-row {
   display: flex;
   justify-content: center;
+  padding-bottom: 0.2rem;
+}
+
+/* Text decoration's */
+h2 {
+  color: var(--accent-color);
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.foo a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover {
+  font-weight: bold;
 }
 
 /* Media Querry */
@@ -66,6 +61,7 @@ body {
     justify-content: center;
   }
 }
+
 @media only screen and (min-width: 77.5rem /* 1240px */) {
   .foo-main {
     justify-content: space-evenly;

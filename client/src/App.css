@@ -22,6 +22,12 @@ body {
   background-color: var(--main-bg-color);
 }
 
-.main {
-  padding-bottom: auto;
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  flex: 1;
 }

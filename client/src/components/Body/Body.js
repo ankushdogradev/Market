@@ -3,9 +3,9 @@ import HomeScreen from "../../screens/HomeScreen/HomeScreen";
 
 const Body = () => {
   return (
-    <body>
+    <div className="content">
       <HomeScreen />
-    </body>
+    </div>
   );
 };
 

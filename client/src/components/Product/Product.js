@@ -7,7 +7,7 @@ const Product = ({ product }) => {
   return (
     <>
       <div className="card">
-        {console.log(`Product Name: ${product.name} & ID: ${product._id}`)}
+        {/* {console.log(`Product Name: ${product.name} & ID: ${product._id}`)} */}
       </div>
     </>
   );

@@ -7,9 +7,13 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Body />
-      <Footer />
+      <div className="container">
+        <Navbar />
+        <div className="content-wrapper">
+          <Body />
+        </div>
+        <Footer />
+      </div>
     </>
   );
 };
