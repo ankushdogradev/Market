@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { MenuItems } from "../MenuItems/MenuItems";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Navbar.scss";
@@ -13,7 +14,9 @@ const Navbar = (props) => {
   return (
     <>
       <nav className="nav-bg">
-        <img className="nav-logo" src={"/logo/logo.svg"} alt="Logo" />
+        <Link to={`/`} className="nav-Link">
+          <img className="nav-logo" src={"/logo/logo.svg"} alt="Logo" />
+        </Link>
 
         <div className="nav-menu-icon" onClick={handleClick}>
           <i
