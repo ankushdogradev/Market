@@ -1,0 +1,57 @@
+@import "../../sass/variables";
+
+.card-container {
+  background: none;
+  width: 17rem;
+  height: 20rem;
+  margin: 1rem;
+  box-shadow: 0 8px 16px 0 $third-bg-color, 0 12px 20px 0 $third-bg-color;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 $accent-color, 0 12px 20px 0 $accent-color;
+  }
+
+  .card-img {
+    display: block;
+    height: 15rem;
+    width: 17rem;
+    border: 0.5rem solid $second-bg-color;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 5px;
+  }
+
+  .card-content {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: $second-bg-color;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    p {
+      color: $text-color;
+    }
+    .card-price {
+      color: $text-color;
+    }
+    .card-name {
+      color: $accent-color;
+    }
+  }
+}
+
+@media only screen and (max-device-width: 28.375rem) {
+  .card-container {
+    background: none;
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem 1rem 2rem 1rem;
+    // cursor: pointer;
+    .card-img {
+      height: 8rem;
+      width: 10rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+  }
+}

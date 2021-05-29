@@ -1,6 +1,7 @@
 @import "../../sass/variables";
 
 .foo {
+  margin-top: 1rem;
   background-color: $second-bg-color;
   color: $text-color;
 }
@@ -24,6 +25,15 @@
 .foo-main-col {
   padding: 1.25rem;
   min-width: 12.5rem;
+  h2 {
+    color: $accent-color;
+    text-align: left;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
 }
 
 /* Lower Footer */
@@ -34,15 +44,6 @@
 }
 
 /* Text decoration's */
-h2 {
-  color: $accent-color;
-  text-align: left;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
 
 .foo a {
   text-decoration: none;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Product from "../../components/Product/Product";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import "./HomeScreen.scss";
 
 const HomeScreen = () => {
@@ -18,11 +18,11 @@ const HomeScreen = () => {
 
   return (
     <>
-      <h1>Best Selling Products</h1>
+      <h1 className="heading">Best Selling Products</h1>
       <div className="prod-row">
         {products.map((product) => (
           <div className="prod-col" key={product._id}>
-            <Product product={product} />
+            <ProductCard product={product} />
           </div>
         ))}
       </div>
