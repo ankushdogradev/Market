@@ -1,5 +1,7 @@
+@import "../../sass/variables";
+
 h1 {
-  color: var(--text-color);
+  color: $text-color;
   display: flex;
   justify-content: left;
   margin-top: 1rem;

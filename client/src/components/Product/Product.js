@@ -1,5 +1,5 @@
 import React from "react";
-import "./Product.css";
+import "./Product.scss";
 
 // or we could have wrote const Product = ( props ) => ...
 // but then we have to write props.product._id and so on

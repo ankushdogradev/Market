@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MenuItems } from "../MenuItems/MenuItems";
 import SearchBar from "../SearchBar/SearchBar";
-import "./Navbar.css";
+import "./Navbar.scss";
 
 const Navbar = (props) => {
   const [clicked, setClicked] = useState(false);

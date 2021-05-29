@@ -1,6 +1,8 @@
+@import "../../sass/variables";
+
 .foo {
-  background-color: var(--second-bg-color);
-  color: var(--text-color);
+  background-color: $second-bg-color;
+  color: $text-color;
 }
 
 .foo-main-logo {
@@ -33,7 +35,7 @@
 
 /* Text decoration's */
 h2 {
-  color: var(--accent-color);
+  color: $accent-color;
   text-align: left;
 }
 
@@ -44,7 +46,7 @@ ul {
 
 .foo a {
   text-decoration: none;
-  color: var(--text-color);
+  color: $text-color;
 }
 
 a:hover {
