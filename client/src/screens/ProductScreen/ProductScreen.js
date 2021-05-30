@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./ProductScreen.scss";
 
 const ProductScreen = ({ match }) => {
   const [product, setProduct] = useState({});
@@ -7,16 +8,28 @@ const ProductScreen = ({ match }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       const { data } = await axios.get(`/api/product/${match.params.id}`);
-      setProduct(data);
+      setProduct(data.product);
     };
     fetchProduct();
-  }, []);
+  }, [match.params.id]);
 
   return (
-    <div>
-      <h1>Product Screen, OPPAI's are best</h1>
-      {console.log(product)}
-    </div>
+    <>
+      <div className="product-container">
+        <div className="product-image">
+          <img src={product.image} alt="Product" />
+        </div>
+        <div className="product-content">
+          <h1>{product.name}</h1>
+          <h3>{`Price: ₹${product.price}`}</h3>
+          <div className="product-inline">
+            <p>Qty Select</p>
+            <button>Add to Cart</button>{" "}
+          </div>
+          <p>{product.description}</p>
+        </div>
+      </div>
+    </>
   );
 };
 
