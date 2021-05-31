@@ -22,10 +22,20 @@ const ProductScreen = ({ match }) => {
         <div className="product-content">
           <h1>{product.name}</h1>
           <h3>{`Price: ₹${product.price}`}</h3>
-          <div className="product-inline">
-            <p>Qty Select</p>
-            <button>Add to Cart</button>{" "}
-          </div>
+          <h3>{`Rating: ${product.rating}`}</h3>
+          {product.countInStock > 0 ? (
+            <h4 className="product-instock">In Stock</h4>
+          ) : (
+            <h4 className="product-nostock">Out of Stock</h4>
+          )}
+          {product.countInStock > 0 ? (
+            <div className="product-inline">
+              <p>Qty Select</p>
+              <button>Add to Cart</button>{" "}
+            </div>
+          ) : (
+            <div className="product-inline">"</div>
+          )}
           <p>{product.description}</p>
         </div>
       </div>
