@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../../redux/actions/productActions";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import Loader from "../../components/Loader/Loader";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import "./HomeScreen.scss";
 
 const HomeScreen = () => {
@@ -26,9 +28,9 @@ const HomeScreen = () => {
       else show & pass data in product card */}
 
       {loading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
-        <h3>{error}</h3>
+        <ErrorMessage />
       ) : (
         <div className="prod-row">
           {products.map((product) => (
