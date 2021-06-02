@@ -9,15 +9,16 @@ import "./HomeScreen.scss";
 const HomeScreen = () => {
   const dispatch = useDispatch();
 
-  //  here we are taking data from productList reducer stored in store.js
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
-
   //   As soon as component runs, useEffect() run's
   useEffect(() => {
     // Fire/calls listProducts:Action/funtion
     dispatch(listProducts());
   }, [dispatch]);
+
+  //  here we are taking data from productList reducer stored in store.js
+  const productList = useSelector((state) => state.productList);
+  // we are De-structuring and pulling what we want out from productList i.e.: loading, error, product.
+  const { loading, error, products } = productList;
 
   return (
     <>
