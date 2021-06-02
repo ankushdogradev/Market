@@ -1,3 +1,8 @@
+/**
+ * FIXME:
+ * - Make all the pages mobile responsive
+ */
+
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Header/Navbar/Navbar";

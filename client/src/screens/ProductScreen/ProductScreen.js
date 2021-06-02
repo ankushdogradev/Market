@@ -1,3 +1,13 @@
+/**
+ * TODO:
+ * - Add buy button
+ * - Add Quantity select option
+ * - When user clicks ADD TO CART  tthere should be +n number written 
+     on cart icon.
+ * - When user clicks on BUY button it should move to Cart Screen.
+   - Add product recomendation on right side. [Only in Desktop Mode]
+ */
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { detailProduct } from "./../../redux/actions/productActions";
