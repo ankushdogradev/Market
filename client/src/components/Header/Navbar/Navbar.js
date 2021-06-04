@@ -29,9 +29,11 @@ const Navbar = (props) => {
         <ul className={clicked ? "nav-menu active" : "nav-menu"}>
           <SearchBar />
 
-          <button className="nav-cart" href="#">
-            <i className="fas fa-shopping-cart"></i> Cart
-          </button>
+          <Link to={`/cart`} className="nav-Link">
+            <button className="nav-cart" href="#">
+              <i className="fas fa-shopping-cart"></i> Cart
+            </button>
+          </Link>
 
           {MenuItems.map((item, index) => {
             return (

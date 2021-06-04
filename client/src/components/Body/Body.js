@@ -7,15 +7,9 @@ import CartScreen from "../../screens/CartScreen/CartScreen";
 const Body = () => {
   return (
     <div className="content">
-      <Route path="/" component={(props) => <HomeScreen {...props} />} exact />
-      <Route
-        path="/product/:id"
-        component={(props) => <ProductScreen {...props} />}
-      />
-      <Route
-        path="/cart/:id?"
-        component={(props) => <CartScreen {...props} />}
-      />
+      <Route exact path="/" component={HomeScreen} />
+      <Route path="/product/:id" component={ProductScreen} />
+      <Route exact path={["/cart/:id", "/cart"]} component={CartScreen} />
     </div>
   );
 };
