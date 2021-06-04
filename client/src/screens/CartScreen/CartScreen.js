@@ -9,7 +9,7 @@ const CartScreen = ({ match, location, history }) => {
   const productID = match.params.id;
 
   // ?qty=34 will get split from "=" [1] index, that is next after "=" (34) otherwise qty=1
-  const qty = location.search ? location.search.split("=")[1] : 1;
+  const qty = location.search ? Number(location.search.split("=")[1]) : 1;
 
   const dispatch = useDispatch();
 
