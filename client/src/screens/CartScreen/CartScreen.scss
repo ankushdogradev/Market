@@ -1,0 +1,40 @@
+@import "../../sass/variables";
+
+.cart-heading {
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  font-size: 1.3em;
+}
+
+.cart-data {
+  color: $text-color;
+
+  .cart-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img {
+      display: block;
+      width: 25rem;
+      height: 25rem;
+      margin: 2rem;
+    }
+    h1 {
+      margin: 2rem;
+      .cart-link {
+        color: $accent-color;
+        text-decoration: inherit;
+      }
+    }
+  }
+
+  .cart-full {
+    margin: 2rem 0rem 2rem 10rem;
+    ul {
+      list-style: none;
+    }
+  }
+}
