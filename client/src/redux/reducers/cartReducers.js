@@ -25,8 +25,15 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: [...state.cartItems, item],
         };
       }
-    // case CART_REMOVE_ITEM:
-    //   return {};
+    case CART_REMOVE_ITEM:
+      return {
+        ...state,
+        // If the deleted Item ID != to other ID's then add the item to cart
+        // It will not add the product with same ID.
+        cartItems: state.cartItems.filter(
+          (x) => x.productID !== action.payload
+        ),
+      };
     default:
       return state;
   }

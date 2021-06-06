@@ -14,6 +14,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { detailProduct } from "./../../redux/actions/productActions";
+import { addToCart } from "../../redux/actions/cartActions";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import "./ProductScreen.scss";
@@ -34,10 +35,7 @@ const ProductScreen = ({ match, history }) => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
   };
   const addToCartHandler = () => {
-    // localStorage.setItem(
-    //   "cartItems",
-    //   JSON.stringify(getState().cart.cartItems)
-    // );
+    dispatch(addToCart(match.params.id, qty));
   };
 
   return (
