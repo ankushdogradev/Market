@@ -4,20 +4,20 @@ require("dotenv").config({
 
 const express = require("express");
 const connectDB = require("./config/db");
-const app = express();
-
 connectDB();
+const app = express();
+app.use(express.json());
 
 // Routes
 const productRoutes = require("./routes/productRoutes");
+const userRoutes = require("./routes/userRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
-const userRoutes = require("./routes/userRoutes");
 
-app.use("/api/", productRoutes);
+app.use("/api", productRoutes);
+app.use("/api/users", userRoutes);
 // app.use("/api/", orderRoutes);
 // app.use("/api/", uploadRoutes);
-// app.use("/api/", userRoutes);
 
 // Check's If the route is not defined and passes 404 error
 app.use((req, res, next) => {
