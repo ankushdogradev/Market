@@ -30,21 +30,61 @@ exports.authUser = async (req, res, next) => {
   }
 };
 
+//  @description: Register a new User
+//  @route:       POST /api/users/users
+//  @access:      Public
+exports.registerUser = async (req, res, next) => {
+  try {
+    const { name, email, password } = req.body;
+    const userExists = await User.findOne({ email });
+
+    if (userExists) {
+      const error = new Error("User already exists");
+      error.status = 400;
+      next(error);
+    }
+
+    const user = await User.create({
+      name,
+      email,
+      password,
+    });
+
+    if (user) {
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        token: generateToken(user._id),
+      });
+    }
+  } catch (error) {
+    console.log("Register error", error);
+    error = new Error("Invalid user data");
+    error.status = 400;
+    next(error);
+  }
+};
+
 //  @description: Get user profile
 //  @route:       GET /api/users/profile
 //  @access:      Private
 exports.getUserProfile = async (req, res, next) => {
-  const user = await User.findById(req.user._id);
+  try {
+    const user = await User.findById(req.user._id);
 
-  if (user) {
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-    });
-  } else {
-    res.status(404);
-    next(new Error("User not found"));
+    if (user) {
+      res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      });
+    }
+  } catch (error) {
+    error = new Error("User not found");
+    error.status = 404;
+    next(error);
   }
 };
