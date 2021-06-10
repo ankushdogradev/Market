@@ -1,10 +1,3 @@
-/*
-    TODO:
-    *   Fix Error Handeling Response (Processing...)
-    *   Start From JWT
-    *   Read about Error Handelling First:https://expressjs.com/en/guide/error-handling.html
-*/
-
 const User = require("../models/userModel");
 const generateToken = require("../utils/generateToken");
 
