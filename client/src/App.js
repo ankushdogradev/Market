@@ -1,6 +1,7 @@
 /**
  * FIXME:
  * - Make all the pages mobile responsive
+ * - Add Global Sass for Link Style and Social Login style
  */
 
 import React from "react";

@@ -1,0 +1,43 @@
+@import "../../sass/variables";
+
+// login-form-items   login-social h1 button input
+.login-container {
+  background: chartreuse;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .login-form {
+    margin: 2rem 2rem;
+    background: crimson;
+    width: 40rem;
+    height: 50rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      margin-top: 1rem;
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .login-form-items {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        margin-top: 1rem;
+      }
+
+      .login-form-social {
+        display: flex;
+      }
+    }
+  }
+}

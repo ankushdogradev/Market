@@ -1,6 +1,9 @@
+// TODO:
+// Delete MenuItems.JS
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { MenuItems } from "../MenuItems/MenuItems";
+// import { MenuItems } from "../MenuItems/MenuItems";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Navbar.scss";
 
@@ -34,8 +37,15 @@ const Navbar = (props) => {
               <i className="fas fa-shopping-cart"></i> Cart
             </button>
           </Link>
+          <Link to={`/users/login`} className="nav-Link">
+            <button className="nav-links">Login</button>
+          </Link>
 
-          {MenuItems.map((item, index) => {
+          <Link to={`/users/signup`} className="nav-Link">
+            <button className="nav-links">Sign Up</button>
+          </Link>
+
+          {/* {MenuItems.map((item, index) => {
             return (
               <li key={index}>
                 <button className={item.cName} href={item.url}>
@@ -43,7 +53,7 @@ const Navbar = (props) => {
                 </button>
               </li>
             );
-          })}
+          })} */}
         </ul>
       </nav>
     </>
