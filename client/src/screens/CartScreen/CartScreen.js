@@ -44,7 +44,10 @@ const CartScreen = ({ match, location, history }) => {
       <div className="cart-data">
         {cartItems.length === 0 ? (
           <div className="cart-empty">
-            <img src="./images/emptyCart/emptyCart.svg"></img>
+            <img
+              src="./images/emptyCart/emptyCart.svg"
+              alt="Nothing here :("
+            ></img>
             <h1>
               Your cart is empty,{" "}
               <Link className="cart-link" to="/">
