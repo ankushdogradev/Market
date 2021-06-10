@@ -68,7 +68,7 @@ const CartScreen = ({ match, location, history }) => {
                         </li>
                         <li>
                           <Link to={`/product/${item.productID}`}>
-                            <img src={item.image}></img>
+                            <img src={item.image} alt={item.name}></img>
                           </Link>
                         </li>
                         <li>{item.name}</li>
