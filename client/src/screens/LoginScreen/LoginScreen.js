@@ -59,26 +59,3 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
-
-//  <div className="sign-in-container">
-//         <div className="sign-in">
-//           <form action="#">
-//             <h1>Sign in</h1>
-//             <div className="sign-in-social">
-//               <a href="#" className="social">
-//                 Github Icon
-//               </a>
-//               <a href="#" className="social">
-//                 Google Icon
-//               </a>
-//             </div>
-//             <h2>or use your account</h2>
-//             <div className="sign-in-input">
-//               <input type="email" placeholder="Email" />
-//               <input type="password" placeholder="Password" />
-//               {/* <a href="#">Forgot your password?</a> */}
-//               <button>Sign In</button>
-//             </div>
-//           </form>
-//         </div>
-//       </div>
