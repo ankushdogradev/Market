@@ -23,6 +23,7 @@ const LoginScreen = () => {
           <form>
             <div className="login-form-items">
               <input
+                className="login-input"
                 type="email"
                 placeholder="Email address"
                 value={email}
@@ -30,6 +31,7 @@ const LoginScreen = () => {
               />
 
               <input
+                className="login-input"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -37,10 +39,16 @@ const LoginScreen = () => {
               />
 
               <button>Login</button>
-              <p>OR LOGIN WITH</p>
+              <h4>OR</h4>
               <div className="login-form-social">
-                <h2>🍔</h2>
-                <h2>🍔</h2>
+                <button className="social">
+                  <img className="googleLogo" src="/logo/google.svg" alt="G" />{" "}
+                  Login with Google
+                </button>
+                <button className="social social-github">
+                  <img className="githubLogo" src="/logo/github.svg" alt="GH" />{" "}
+                  Login with GitHub
+                </button>
               </div>
             </div>
           </form>

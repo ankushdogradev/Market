@@ -2,27 +2,30 @@
 
 // login-form-items   login-social h1 button input
 .login-container {
-  background: chartreuse;
   height: 40rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   .login-form {
     margin: 2rem 2rem;
-    background: crimson;
-    width: 40rem;
-    height: 50rem;
+    background: $second-bg-color;
+    width: 25rem;
+    height: 30rem;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    box-shadow: 0 0px 20px 0 $accent-color, 0 0px 30px 0 $accent-color;
 
     h1 {
       margin-top: 1rem;
       font-size: 2.4rem;
       text-transform: uppercase;
       font-weight: bold;
+      color: $text-color;
     }
 
     .login-form-items {
@@ -31,12 +34,69 @@
       flex-direction: column;
       align-items: center;
 
-      p {
+      h4 {
         margin-top: 1rem;
+        color: $text-color;
+      }
+
+      .login-input {
+        padding: 1rem;
+        margin: 0.5rem;
+        width: 20rem;
+        border-radius: 12px;
+        font-weight: bold;
+        background: $third-bg-color;
+        color: $text-color;
+        border: none;
+      }
+
+      button {
+        position: relative;
+        text-align: center;
+        width: 20rem;
+        background: $third-bg-color;
+        color: $text-color;
+        border: none;
+        border-radius: 12px;
+        height: 3rem;
+        padding: 10px 10px;
+        outline: none;
+        box-shadow: 0 2px #999;
+        font-weight: bold;
+      }
+      button:active {
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+      }
+      button:hover {
+        background: $accent-color;
+        color: black;
       }
 
       .login-form-social {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .social {
+          margin: 0.7rem;
+        }
+
+        .googleLogo {
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          left: 20px;
+          top: 30%;
+        }
+
+        .githubLogo {
+          // width: 20px;
+          // height: 20px;
+          position: absolute;
+          left: 20px;
+          top: 30%;
+        }
       }
     }
   }
