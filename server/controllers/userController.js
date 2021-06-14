@@ -18,7 +18,7 @@ exports.authUser = async (req, res, next) => {
         token: generateToken(user._id),
       });
     } else {
-      error = new Error("Invalid email or password");
+      const error = new Error("Invalid email or password");
       error.status = 400;
       next(error);
     }
@@ -59,8 +59,6 @@ exports.registerUser = async (req, res, next) => {
       });
     }
   } catch (error) {
-    console.log("Register error", error);
-    error = new Error("Invalid user data");
     error.status = 400;
     next(error);
   }

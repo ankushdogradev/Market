@@ -11,10 +11,18 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+      match: [
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        "Please enter a valid email address",
+      ],
     },
     password: {
       type: String,
       required: true,
+      match: [
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        "Password must contain minimum eight characters, atleast one letter, one number & one speccial character ",
+      ],
     },
     isAdmin: {
       type: String,
@@ -27,8 +35,6 @@ const userSchema = mongoose.Schema(
   }
 );
 
-// We are checking weather the entered password matches with password
-// in the database
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
