@@ -9,11 +9,11 @@ import SignupScreen from "../../screens/SignupScreen/SignupScreen";
 const Body = () => {
   return (
     <div className="content">
+      <Route path="/login" component={LoginScreen} />
+      <Route path="/signup" component={SignupScreen} />
       <Route exact path="/" component={HomeScreen} />
       <Route path="/product/:id" component={ProductScreen} />
       <Route exact path={["/cart/:id", "/cart"]} component={CartScreen} />
-      <Route path="/users/login" component={LoginScreen} />
-      <Route path="/users/signup" component={SignupScreen} />
     </div>
   );
 };

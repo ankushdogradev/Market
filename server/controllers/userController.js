@@ -19,12 +19,13 @@ exports.authUser = async (req, res, next) => {
       });
     } else {
       const error = new Error("Invalid email or password");
-      error.status = 400;
+      error.status = 401;
       next(error);
     }
   } catch (error) {
+    console.log("_id: ", user._id);
     error = new Error("Invalid user data");
-    error.status = 400;
+    error.status = 401;
     next(error);
   }
 };

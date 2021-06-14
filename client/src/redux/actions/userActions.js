@@ -5,7 +5,7 @@ import {
   USER_LOGIN_SUCCESS,
 } from "../constants/userConstants";
 
-export const login = () => (email, password) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
       type: USER_LOGIN_REQUEST,
@@ -13,7 +13,7 @@ export const login = () => (email, password) => async (dispatch) => {
 
     const config = {
       headers: {
-        "Content-Type": "appllication/json",
+        "Content-Type": "application/json",
       },
     };
 
@@ -22,6 +22,7 @@ export const login = () => (email, password) => async (dispatch) => {
       { email, password },
       config
     );
+
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,

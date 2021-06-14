@@ -1,11 +1,4 @@
-// TODO:
-// * Rewatch Both Videos & UNDERSTAND
-// * Check your code again
-// * Look answers on youtube and overflow
-// * ASk
-
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loader from "../../components/Loader/Loader";
@@ -20,12 +13,13 @@ const LoginScreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
-  // const redirect = location.search ? location.search.split("=")[1] : "/";
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     history.push(redirect);
-  //   }
-  // }, [history, userInfo, redirect]);
+  const redirect = location.search ? location.search.split("=")[1] : "/";
+
+  useEffect(() => {
+    if (userInfo) {
+      history.push(redirect);
+    }
+  }, [history, userInfo, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,12 +29,12 @@ const LoginScreen = ({ location, history }) => {
   return (
     <>
       <div className="login-container">
+        {error && <ErrorMessage error={error} />}
         <div className="login-form">
           <h1>Login</h1>
+
           {loading ? (
             <Loader />
-          ) : error ? (
-            <ErrorMessage error={error} />
           ) : (
             <form onSubmit={submitHandler}>
               <div className="login-form-items">
@@ -58,7 +52,7 @@ const LoginScreen = ({ location, history }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit" value="Submit">
+                <button type="submit" value="submit">
                   Login
                 </button>
 

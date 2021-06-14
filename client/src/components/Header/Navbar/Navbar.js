@@ -37,11 +37,11 @@ const Navbar = (props) => {
               <i className="fas fa-shopping-cart"></i> Cart
             </button>
           </Link>
-          <Link to={`/users/login`} className="nav-Link">
+          <Link to={`/login`} className="nav-Link">
             <button className="nav-links">Login</button>
           </Link>
 
-          <Link to={`/users/signup`} className="nav-Link">
+          <Link to={`/signup`} className="nav-Link">
             <button className="nav-links">Sign Up</button>
           </Link>
 
