@@ -45,11 +45,11 @@ const SignupScreen = () => {
               <div className="signup-form-social">
                 <button className="social">
                   <img className="googleLogo" src="/logo/google.svg" alt="G" />{" "}
-                  Login with Google
+                  Signup with Google
                 </button>
                 <button className="social social-github">
                   <img className="githubLogo" src="/logo/github.svg" alt="GH" />{" "}
-                  Login with GitHub
+                  Signup with GitHub
                 </button>
               </div>
             </div>

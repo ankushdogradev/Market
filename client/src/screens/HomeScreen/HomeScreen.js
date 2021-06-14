@@ -29,10 +29,6 @@ const HomeScreen = () => {
     <>
       <h1 className="heading">Best Selling Products</h1>
 
-      {/* If loading true -> loading icon, 
-      else if error -> show error, 
-      else show & pass data in product card */}
-
       {loading ? (
         <Loader />
       ) : error ? (

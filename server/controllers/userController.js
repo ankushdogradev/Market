@@ -17,9 +17,15 @@ exports.authUser = async (req, res, next) => {
         isAdmin: user.isAdmin,
         token: generateToken(user._id),
       });
+    } else {
+      error = new Error("Invalid email or password");
+      error.status = 400;
+      next(error);
     }
   } catch (error) {
-    next(new Error("Invalid email or password"));
+    error = new Error("Invalid user data");
+    error.status = 400;
+    next(error);
   }
 };
 
