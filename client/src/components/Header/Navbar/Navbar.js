@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../../../redux/actions/userActions";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Navbar.scss";
 
@@ -9,6 +10,15 @@ const Navbar = (props) => {
   const [drop, setDrop] = useState(false);
   const dropdownRef = useRef(null);
 
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
+
   const menuClick = () => {
     setClicked(!clicked);
   };
@@ -16,9 +26,6 @@ const Navbar = (props) => {
   const dropClick = () => {
     setDrop(!drop);
   };
-
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
 
   useEffect(() => {
     const pageClickEvent = (e) => {
@@ -72,10 +79,13 @@ const Navbar = (props) => {
                 className={`nav-drop-content ${drop ? "active" : "inactive"}`}
               >
                 <ul>
-                  <li id="item1">
-                    <h4>PROFILE</h4>
-                  </li>
-                  <li id="item2">
+                  <Link to={`/profile`} className="nav-Link">
+                    <li id="item1">
+                      <h4>PROFILE</h4>
+                    </li>
+                  </Link>
+
+                  <li id="item2" onClick={logoutHandler}>
                     <h4>LOGOUT</h4>
                   </li>
                 </ul>
@@ -88,7 +98,9 @@ const Navbar = (props) => {
               </Link>
 
               <Link to={`/signup`} className="nav-Link">
-                <button className="nav-links">Sign Up</button>
+                <button className="nav-links" id="nav-signup">
+                  Sign Up
+                </button>
               </Link>
             </div>
           )}
