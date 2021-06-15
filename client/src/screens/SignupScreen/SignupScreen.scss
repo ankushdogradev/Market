@@ -2,17 +2,18 @@
 
 // signup-form-items   signup-social h1 button input
 .signup-container {
-  height: 40rem;
+  height: 45rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin: 3rem 3rem;
 
   .signup-form {
     margin: 2rem 2rem;
     background: $second-bg-color;
     width: 25rem;
-    height: 35rem;
+    height: 38rem;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
