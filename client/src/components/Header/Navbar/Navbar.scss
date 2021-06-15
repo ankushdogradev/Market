@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   button {
     height: 35px;
     width: auto;
@@ -25,6 +25,94 @@
   button:active {
     box-shadow: 0 2px #666;
     transform: translateY(2px);
+  }
+
+  .nav-cart,
+  .nav-links,
+  .nav-drop {
+    background-color: $third-bg-color;
+    color: $text-color;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-cart:hover,
+  .nav-links:hover {
+    background-color: $accent-color;
+    color: black;
+  }
+
+  .nav-drop:hover {
+    background: black;
+  }
+
+  .nav-drop:active {
+    box-shadow: 0 2px rgb(175, 66, 47);
+  }
+
+  .nav-drop {
+    box-shadow: 0 2px $accent-color;
+    color: $accent-color;
+    text-transform: uppercase;
+  }
+
+  .nav-cart:hover .fa-shopping-cart {
+    color: black;
+  }
+
+  .nav-drop-container {
+    position: relative;
+
+    .nav-drop-content {
+      background: $third-bg-color;
+      border-radius: 8px;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 10rem;
+      font-size: 0.9em;
+      box-shadow: 0 1px 16px black;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
+
+    .nav-drop-content.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      border-radius: 16px;
+      background: $third-bg-color;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      border-radius: 16px;
+    }
+    li {
+      color: $text-color;
+      cursor: pointer;
+      h4 {
+        padding: 15px 20px;
+        display: block;
+      }
+    }
+    li:hover {
+      color: $accent-color;
+      background-color: black;
+    }
+    #item1:hover {
+      border-top-right-radius: 16px;
+      border-top-left-radius: 16px;
+    }
+    #item2:hover {
+      border-bottom-right-radius: 16px;
+      border-bottom-left-radius: 16px;
+    }
   }
 }
 
@@ -49,24 +137,6 @@
   width: 70vw;
   justify-content: end;
   margin-right: 2rem;
-}
-
-.nav-cart,
-.nav-links {
-  background-color: $third-bg-color;
-  color: $text-color;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-}
-
-.nav-cart:hover,
-.nav-links:hover {
-  background-color: tomato;
-  color: black;
-}
-
-.nav-cart:hover .fa-shopping-cart {
-  color: black;
 }
 
 .nav-menu-icon {
