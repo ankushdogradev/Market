@@ -1,0 +1,141 @@
+@import "../../sass/variables";
+
+.profile-container {
+  height: 45rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 3rem 3rem;
+
+  .profile {
+    .profile-form {
+      margin: 2rem 2rem;
+      background: $second-bg-color;
+      width: 25rem;
+      height: 38rem;
+      border-radius: 16px;
+      padding-top: 2rem;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      box-shadow: 0 0px 20px 0 $accent-color, 0 0px 30px 0 $accent-color;
+
+      h2 {
+        margin-top: 1rem;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $text-color;
+      }
+      h3 {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $accent-color;
+      }
+
+      .profile-form-items {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h4 {
+          margin-top: 1rem;
+          color: $text-color;
+        }
+
+        .profile-input {
+          padding: 1rem;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          width: 20rem;
+          border-radius: 12px;
+          font-weight: bold;
+          background: $third-bg-color;
+          color: $text-color;
+          border: none;
+        }
+
+        button {
+          position: relative;
+          text-align: center;
+          width: 20rem;
+          background: $third-bg-color;
+          color: $text-color;
+          border: none;
+          border-radius: 12px;
+          height: 3rem;
+          padding: 10px 10px;
+          outline: none;
+          box-shadow: 0 2px #999;
+          font-weight: bold;
+        }
+        button:active {
+          box-shadow: 0 2px #666;
+          transform: translateY(2px);
+        }
+        button:hover {
+          background: $accent-color;
+          color: black;
+        }
+
+        .profile-form-social {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .social {
+            margin: 0.7rem;
+          }
+
+          .googleLogo {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            left: 20px;
+            top: 30%;
+          }
+
+          .githubLogo {
+            // width: 20px;
+            // height: 20px;
+            position: absolute;
+            left: 20px;
+            top: 30%;
+          }
+        }
+      }
+    }
+  }
+
+  .orders {
+    margin: 2rem 2rem;
+    background: $second-bg-color;
+    width: 100%;
+    height: 38rem;
+    border-radius: 16px;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-shadow: 0 0px 20px 0 $accent-color, 0 0px 30px 0 $accent-color;
+
+    h2 {
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $text-color;
+    }
+
+    .order-items {
+      margin-top: 2rem;
+      ul {
+        list-style: none;
+      }
+    }
+  }
+}

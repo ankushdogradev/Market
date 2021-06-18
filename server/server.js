@@ -31,9 +31,9 @@ app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
     error: {
-      Success: false,
-      Status: error.status || 500,
-      Message: error.message,
+      success: false,
+      status: error.status || 500,
+      message: error.message,
     },
   });
 });
