@@ -7,7 +7,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
     <>
       <div className="steps-nav">
         <ul>
-          <li>
+          {/* <li>
             {step1 ? (
               <Link to="/login" className="steps-nav-link">
                 <h3>Signin</h3>
@@ -17,9 +17,9 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
                 <h3>Signin</h3>
               </Link>
             )}
-          </li>
+          </li> */}
           <li>
-            {step2 ? (
+            {step1 ? (
               <Link to="/shipping" className="steps-nav-link">
                 <h3>Shipping</h3>
               </Link>
@@ -30,7 +30,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             )}
           </li>
           <li>
-            {step3 ? (
+            {step2 ? (
               <Link to="/payment" className="steps-nav-link">
                 <h3>Payment</h3>
               </Link>
@@ -41,7 +41,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             )}
           </li>
           <li>
-            {step4 ? (
+            {step3 ? (
               <Link to="/placeorder" className="steps-nav-link">
                 <h3>Place Order</h3>
               </Link>

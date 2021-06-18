@@ -1,7 +1,7 @@
 @import "../../sass/variables";
 
-.shipping-container {
-  height: 45rem;
+.payment-container {
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,11 +16,12 @@
     color: $text-color;
   }
 
-  .shipping-form {
+  .payment-form {
     margin: 2rem 2rem;
     background: $second-bg-color;
     width: 25rem;
-    height: 28rem;
+    height: auto;
+    padding-bottom: 1rem;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -28,26 +29,27 @@
     justify-content: flex-start;
     box-shadow: 0 0px 20px 0 $accent-color, 0 0px 30px 0 $accent-color;
 
-    .shipping-form-items {
+    .payment-form-items {
       margin-top: 2rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-
-      .shipping-input {
-        padding: 1rem;
+      align-items: flex-start;
+      // justify-content: flex-start;
+      .payment-input {
         margin: 0.5rem;
-        width: 20rem;
-        border-radius: 12px;
-        font-weight: bold;
-        background: $third-bg-color;
-        color: $text-color;
-        border: none;
+      }
+
+      .radio {
+        display: flex;
+        align-items: center;
+        h3 {
+          color: $text-color;
+        }
       }
       button {
         position: relative;
         text-align: center;
-        margin: 0.3rem;
+        margin-top: 0.5rem;
         width: 20rem;
         background: $third-bg-color;
         color: $text-color;
