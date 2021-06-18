@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import CheckoutSteps from "../../components/CheckoutSteps/CheckoutSteps";
 import { saveShippingAddress } from "../../redux/actions/cartActions";
 import "./ShippingScreen.scss";
 
@@ -30,6 +31,7 @@ const ShippingScreen = ({ history }) => {
   return (
     <>
       <div className="shipping-container">
+        <CheckoutSteps step1 step2 />
         <h1>Shipping</h1>
         <div className="shipping-form">
           <form onSubmit={submitHandler}>

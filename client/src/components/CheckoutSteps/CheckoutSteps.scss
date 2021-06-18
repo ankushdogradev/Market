@@ -1,0 +1,22 @@
+@import "../../sass/variables";
+
+.steps-nav {
+  ul {
+    display: flex;
+    list-style: none;
+    background: $second-bg-color;
+    border-radius: 16px;
+    li {
+      margin: 1rem;
+      text-transform: uppercase;
+      color: $accent-color;
+    }
+    .steps-nav-link {
+      color: inherit;
+      text-decoration: inherit;
+    }
+    .disabled-link {
+      color: $text-color;
+    }
+  }
+}
