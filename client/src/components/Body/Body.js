@@ -6,10 +6,12 @@ import CartScreen from "../../screens/CartScreen/CartScreen";
 import LoginScreen from "../../screens/LoginScreen/LoginScreen";
 import SignupScreen from "../../screens/SignupScreen/SignupScreen";
 import ProfileScreen from "../../screens/ProfileScreen/ProfileScreen";
+import ShippingScreen from "../../screens/ShippingScreen/ShippingScreen";
 
 const Body = () => {
   return (
     <div className="content">
+      <Route path="/shipping" component={ShippingScreen} />
       <Route path="/login" component={LoginScreen} />
       <Route path="/signup" component={SignupScreen} />
       <Route path="/profile" component={ProfileScreen} />
