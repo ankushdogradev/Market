@@ -1,7 +1,3 @@
-// Check wether radio button are working or not
-// Add action reducer etc
-// Finolize Design
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CheckoutSteps from "../../components/CheckoutSteps/CheckoutSteps";
@@ -12,17 +8,18 @@ const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
 
+  const dispatch = useDispatch();
   if (!shippingAddress) {
-    history.pushState("/shipping");
+    history.push("/placeorder");
   }
 
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatchEvent(savePaymentMethod({ paymentMethod }));
+    dispatch(savePaymentMethod({ paymentMethod }));
     console.log(paymentMethod);
-    history.pushState("/placeorder");
+    history.push("/placeorder");
   };
   return (
     <>
