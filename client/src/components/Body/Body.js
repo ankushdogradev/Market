@@ -8,10 +8,12 @@ import SignupScreen from "../../screens/SignupScreen/SignupScreen";
 import ProfileScreen from "../../screens/ProfileScreen/ProfileScreen";
 import ShippingScreen from "../../screens/ShippingScreen/ShippingScreen";
 import PaymentScreen from "../../screens/PaymentScreen/PaymentScreen";
+import PlaceOrderScreen from "../../screens/PlaceOrderScreen/PlaceOrderScreen";
 
 const Body = () => {
   return (
     <div className="content">
+      <Route path="/placeorder" component={PlaceOrderScreen} />
       <Route path="/payment" component={PaymentScreen} />
       <Route path="/shipping" component={ShippingScreen} />
       <Route path="/login" component={LoginScreen} />

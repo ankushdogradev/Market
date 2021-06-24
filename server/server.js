@@ -16,7 +16,7 @@ const uploadRoutes = require("./routes/uploadRoutes");
 
 app.use("/api", productRoutes);
 app.use("/api/users", userRoutes);
-// app.use("/api/", orderRoutes);
+app.use("/api/orders", orderRoutes);
 // app.use("/api/", uploadRoutes);
 
 // Check's If the route is not defined and passes 404 error

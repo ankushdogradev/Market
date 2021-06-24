@@ -13,12 +13,11 @@ const PaymentScreen = ({ history }) => {
     history.push("/placeorder");
   }
 
-  const [paymentMethod, setPaymentMethod] = useState("PayPal");
-
+  const [paymentMethod, setPaymentMethod] = useState("RazorPay");
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(savePaymentMethod({ paymentMethod }));
-    console.log(paymentMethod);
+
     history.push("/placeorder");
   };
   return (
@@ -36,6 +35,7 @@ const PaymentScreen = ({ history }) => {
                   value="RazorPay"
                   id="RazorPay"
                   name="paymentMethod"
+                  checked
                   onChange={(e) => setPaymentMethod(e.target.value)}
                 />
                 <h3>RazorPay</h3>
