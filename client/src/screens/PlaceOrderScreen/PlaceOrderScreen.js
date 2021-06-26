@@ -1,8 +1,3 @@
-// Problem is order data
-// try to find a way to pass it
-// copy paste
-// ask gods
-
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CheckoutSteps from "../../components/CheckoutSteps/CheckoutSteps";
@@ -11,19 +6,19 @@ import { Link } from "react-router-dom";
 import { createOrder } from "../../redux/actions/orderActions";
 import "./PlaceOrderScreen.scss";
 
-const OrderScreen = ({ history }) => {
+const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  console.log("CART: ", cart);
   const {
     payment: { paymentMethod },
     shippingAddress,
     cartItems,
   } = cart;
-  console.log(cartItems);
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
-  // Calculate Prices
+
   cart.itemPrice = addDecimals(
     cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   );
@@ -33,11 +28,13 @@ const OrderScreen = ({ history }) => {
       .reduce((acc, item) => acc + item.price * item.qty * 0.1, 0)
       .toFixed(2)
   );
-  cart.totalPrice = (
-    Number(cart.itemPrice) +
-    Number(cart.shippingPrice) +
-    Number(cart.taxPrice)
-  ).toFixed(2);
+  cart.totalPrice = addDecimals(
+    (
+      Number(cart.itemPrice) +
+      Number(cart.shippingPrice) +
+      Number(cart.taxPrice)
+    ).toFixed(2)
+  );
 
   const orderCreate = useSelector((state) => state.orderCreate);
   const { order, success, error } = orderCreate;
@@ -156,4 +153,4 @@ const OrderScreen = ({ history }) => {
   );
 };
 
-export default OrderScreen;
+export default PlaceOrderScreen;

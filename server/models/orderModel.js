@@ -36,6 +36,11 @@ const orderSchema = mongoose.Schema(
       update_time: { type: String },
       email_address: { type: String },
     },
+    itemPrice: {
+      type: Number,
+      required: true,
+      default: 0.0,
+    },
     taxPrice: {
       type: Number,
       required: true,
@@ -76,3 +81,12 @@ const orderSchema = mongoose.Schema(
 const Order = mongoose.model("Order", orderSchema);
 
 module.exports = Order;
+
+/*
+ADDED:
+itemPrice: {
+      type: Number,
+      required: true,
+      default: 0.0,
+    },
+*/
