@@ -27,6 +27,9 @@ const OrderScreen = ({ match }) => {
       shippingPrice,
       totalPrice,
       _id,
+      user,
+      isPaid,
+      isDelivered,
     },
   } = orderDetails;
   console.log("ORDER DETAILS: ", orderDetails);
@@ -40,15 +43,6 @@ const OrderScreen = ({ match }) => {
   console.log("TOTAL PRICE: ", totalPrice);
   console.log("_ID: ", _id);
 
-  // if (!loading) {
-  //   const addDecimals = (num) => {
-  //     return (Math.round(num * 100) / 100).toFixed(2);
-  //   };
-
-  //   itemPrice = addDecimals(
-  //     orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
-  //   );
-  // }
   return (
     <>
       <div className="order-container">
@@ -57,20 +51,39 @@ const OrderScreen = ({ match }) => {
         ) : error ? (
           <ErrorMessage>{error}</ErrorMessage>
         ) : (
-          <div>
+          <div className="order-content">
             <div className="order-form">
-              <h1>Order: {_id}</h1>
+              <h1>ORDER ID: </h1>
+              <h1>{_id}</h1>
 
               <div className="order-shipping-address">
+                <h2>SHIPPIING:</h2>
+                <p>
+                  <strong>Name: </strong>
+                  {user.name}
+                </p>
+                <p>
+                  <strong>Email: </strong> {user.email}
+                </p>
                 <p>
                   <strong>Address: </strong>
                   {shippingAddress.address}, {shippingAddress.city}{" "}
                   {shippingAddress.postalCode}, {shippingAddress.country}
                 </p>
+                {isDelivered ? (
+                  <strong className="delivered"> [DELIVERED] </strong>
+                ) : (
+                  <strong className="not-delivered"> [NOT DELIVERED] </strong>
+                )}
               </div>
               <div className="order-payment-method">
-                <strong>Payment Method: </strong>
+                <h2>PAYMENT METHOD: </h2>
                 {paymentMethod}
+                {isPaid ? (
+                  <strong className="paid"> [PAID] </strong>
+                ) : (
+                  <strong className="not-paid"> [NOT PAID] </strong>
+                )}
               </div>
 
               <div className="order-items">
@@ -109,20 +122,20 @@ const OrderScreen = ({ match }) => {
             <div className="summery">
               <h1>Order Summery</h1>
               <div className="item-price">
-                <h4>Items</h4>
-                <p>₹{itemPrice}</p>
+                <h2>ITEM PRICE: </h2>
+                <strong>₹{itemPrice}</strong>
               </div>
               <div className="shipping-price">
-                <h4>Shipping</h4>
-                <p>₹{shippingPrice}</p>
+                <h2>SHIPPING PRICE: </h2>
+                <strong>₹{shippingPrice}</strong>
               </div>
               <div className="tax-price">
-                <h4>Tax</h4>
-                <p>₹{taxPrice}</p>
+                <h2>TAX: </h2>
+                <strong>₹{taxPrice}</strong>
               </div>
               <div className="shipping-price">
-                <h2>Total</h2>
-                <h2>₹{totalPrice}</h2>
+                <h2>TOTAL AMOUNT: </h2>
+                <strong>₹{totalPrice}</strong>
               </div>
             </div>
           </div>

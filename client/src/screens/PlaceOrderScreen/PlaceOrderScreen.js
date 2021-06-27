@@ -67,85 +67,87 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <>
-      <div className="order-container">
+      <div className="placeOrder-container">
         <CheckoutSteps step1 step2 step3 />
-        <div className="order-form">
-          <h1>shipping</h1>
+        <div className="placeOrder-content ">
+          <div className="placeOrder-form">
+            <h1>shipping</h1>
 
-          <div className="order-shipping-address">
-            <p>
-              <strong>Address: </strong>
-              {shippingAddress.address}, {shippingAddress.city}{" "}
-              {shippingAddress.postalCode}, {shippingAddress.country}
-            </p>
-          </div>
+            <div className="placeOrder-shipping-address">
+              <p>
+                <strong>Address: </strong>
+                {shippingAddress.address}, {shippingAddress.city}{" "}
+                {shippingAddress.postalCode}, {shippingAddress.country}
+              </p>
+            </div>
 
-          <div className="order-payment-method">
-            {/* ADd paymen method from local storage */}
-            <strong>Payment Method: </strong>
-            {paymentMethod}
-          </div>
+            <div className="placeOrder-payment-method">
+              {/* ADd paymen method from local storage */}
+              <strong>Payment Method: </strong>
+              {paymentMethod}
+            </div>
 
-          <div className="order-items">
-            <h2> ORDERED ITEMS:</h2>
-            {cartItems.length === 0 ? (
-              <ErrorMessage>Your Cart is empty</ErrorMessage>
-            ) : (
-              <div className="order-list-container">
-                {cartItems.map((item, index) => (
-                  <div className="order-list" key={index}>
-                    <div className="order-list-image">
-                      <Link
-                        className="order-nav-Link"
-                        to={`/product/₹${item.productID}`}
-                      >
-                        <img src={item.image} alt={`${item.name} :(`} />
-                      </Link>
+            <div className="placeOrder-items">
+              <h2> ORDERED ITEMS:</h2>
+              {cartItems.length === 0 ? (
+                <ErrorMessage>Your Cart is empty</ErrorMessage>
+              ) : (
+                <div className="placeOrder-list-container">
+                  {cartItems.map((item, index) => (
+                    <div className="placeOrder-list" key={index}>
+                      <div className="placeOrder-list-image">
+                        <Link
+                          className="placeOrder-nav-Link"
+                          to={`/product/₹${item.productID}`}
+                        >
+                          <img src={item.image} alt={`${item.name} :(`} />
+                        </Link>
+                      </div>
+                      <div className="placeOrder-list-name">
+                        <Link
+                          className="placeOrder-nav-Link"
+                          to={`/product/₹${item.productID}`}
+                        >
+                          {item.name}
+                        </Link>
+                      </div>
+                      <div className="placeOrder-list-qtyPrice">
+                        {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
+                      </div>
                     </div>
-                    <div className="order-list-name">
-                      <Link
-                        className="order-nav-Link"
-                        to={`/product/₹${item.productID}`}
-                      >
-                        {item.name}
-                      </Link>
-                    </div>
-                    <div className="order-list-qtyPrice">
-                      {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="summery">
-          <h1>Order Summery</h1>
-          <div className="item-price">
-            <h4>Items</h4>
-            <p>₹{cart.itemPrice}</p>
-          </div>
-          <div className="shipping-price">
-            <h4>Shipping</h4>
-            <p>₹{cart.shippingPrice}</p>
-          </div>
-          <div className="tax-price">
-            <h4>Tax</h4>
-            <p>₹{cart.taxPrice}</p>
-          </div>
-          <div className="shipping-price">
-            <h2>Total</h2>
-            <h2>₹{cart.totalPrice}</h2>
-          </div>
-          {error && <ErrorMessage>{error}</ErrorMessage>}
-          <div className="order-button">
-            <button
-              type="button"
-              disabled={cart.cartItems === 0}
-              onClick={placeOrderHandler}
-            >
-              Place Order
-            </button>
+          <div className="summery">
+            <h1>Order Summery</h1>
+            <div className="item-price">
+              <h2>ITEM PRICE: </h2>
+              <strong>₹{cart.itemPrice}</strong>
+            </div>
+            <div className="shipping-price">
+              <h2>SHIPPING PRICE: </h2>
+              <strong>₹{cart.shippingPrice}</strong>
+            </div>
+            <div className="tax-price">
+              <h2>TAX: </h2>
+              <strong>₹{cart.taxPrice}</strong>
+            </div>
+            <div className="shipping-price">
+              <h2>TOTAL AMOUNT: </h2>
+              <strong>₹{cart.totalPrice}</strong>
+            </div>
+            {error && <ErrorMessage>{error}</ErrorMessage>}
+            <div className="placeOrder-button">
+              <button
+                type="button"
+                disabled={cart.cartItems === 0}
+                onClick={placeOrderHandler}
+              >
+                Place Order
+              </button>
+            </div>
           </div>
         </div>
       </div>
