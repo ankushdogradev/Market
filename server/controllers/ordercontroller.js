@@ -59,3 +59,33 @@ exports.getOrderById = async (req, res, next) => {
     next(error);
   }
 };
+
+//  @description: Update order to paid
+//  @route: GET /api/orders/:id/pay
+//  @access: Private
+exports.updateOrderToPaid = async (req, res, next) => {
+  try {
+    const order = await Order.findById(req.params.id);
+
+    if (order) {
+      order.isPaid = true;
+      order.paidAt = Date.now();
+      order.paymentResult = {
+        id: req.body.id,
+        status: req.body.status,
+        update_time: req.body.update_time,
+        email_address: req.body.payer.email_address,
+      };
+
+      const updateOrder = await order.save();
+
+      res.json(updateOrder);
+    } else {
+      error = new Error("Order not found");
+      error.status = 404;
+      next(error);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
