@@ -19,6 +19,10 @@ app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 // app.use("/api/", uploadRoutes);
 
+app.get("/api/config/paypal", (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
+);
+
 // Check's If the route is not defined and passes 404 error
 app.use((req, res, next) => {
   const error = new Error(`Requested URL: ${req.path} not found!`);
