@@ -34,8 +34,6 @@ const OrderScreen = ({ match }) => {
     },
   } = orderDetails;
 
-  console.log("isPaid: ", !isPaid);
-
   const orderPay = useSelector((state) => state.orderPay);
   const { success: successPay, loading: loadingPay } = orderPay;
 
@@ -53,27 +51,20 @@ const OrderScreen = ({ match }) => {
     };
 
     if (
-      (Object.keys(order.orderItems).length === 0 &&
-        Object.keys(order.shippingAddress).length === 0) ||
+      (Object.keys(orderItems).length === 0 &&
+        Object.keys(shippingAddress).length === 0) ||
       successPay
     ) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch(getOrderDetails(orderID));
-    } else if (Object.keys(order.isPaid).length === 0) {
+    } else if (Object.keys(isPaid).length === 0) {
       if (!window.paypal) {
         addPayPalScript();
       } else {
         setSdkReady(true);
       }
     }
-  }, [
-    dispatch,
-    orderID,
-    successPay,
-    order.orderItems,
-    order.shippingAddress,
-    order.isPaid,
-  ]);
+  }, [dispatch, orderID, successPay, orderItems, shippingAddress, isPaid]);
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult);
@@ -116,6 +107,7 @@ const OrderScreen = ({ match }) => {
               <div className="order-payment-method">
                 <h2>PAYMENT METHOD: </h2>
                 {paymentMethod}
+                {console.log("isPaid: ", isPaid)}
                 {isPaid ? (
                   <strong className="paid"> [PAID] </strong>
                 ) : (
@@ -174,7 +166,7 @@ const OrderScreen = ({ match }) => {
                 <h2>TOTAL AMOUNT: </h2>
                 <strong>₹{totalPrice}</strong>
               </div>
-              {/* {console.log("IS PAID: ", !order.isPaid)} */}
+              {console.log("Is !Paid: ", !isPaid)}
               {!isPaid && (
                 <div>
                   {loadingPay && <Loader />}

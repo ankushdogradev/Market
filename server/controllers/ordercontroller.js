@@ -89,3 +89,15 @@ exports.updateOrderToPaid = async (req, res, next) => {
     next(error);
   }
 };
+
+//  @description: GET logged in user orders
+//  @route: GET /api/orders/myorders
+//  @access: Private
+exports.getMyOrders = async (req, res, next) => {
+  try {
+    const orders = await Order.find({ user: req.user._id });
+    res.json(orders);
+  } catch (error) {
+    next(error);
+  }
+};

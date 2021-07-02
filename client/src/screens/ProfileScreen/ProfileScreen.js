@@ -1,12 +1,16 @@
+// ERROR: ORDER ID BUTTON DETAILS
+
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import Message from "../../components/Message/Message";
-import Loader from "../../components/Loader/Loader";
+import { Link } from "react-router-dom";
+import { listMyOrders } from "../../redux/actions/orderActions";
 import {
   getUserDetails,
   updateUserProfile,
 } from "../../redux/actions/userActions";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import Message from "../../components/Message/Message";
+import Loader from "../../components/Loader/Loader";
 import "./ProfileScreen.scss";
 import { USER_UPDATE_PROFILE_RESET } from "../../redux/constants/userConstants";
 
@@ -31,13 +35,20 @@ const ProfileScreen = ({ location, history }) => {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
 
+  const orderListMy = useSelector((state) => state.orderListMy);
+  const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
+
   useEffect(() => {
     if (!userInfo) {
       history.push("/login");
     } else {
-      if (!user.name || !user || success) {
-        dispatch({ type: USER_UPDATE_PROFILE_RESET });
+      // if (!user.name || !user || success) {
+      //   dispatch({ type: USER_UPDATE_PROFILE_RESET });
+      //   dispatch(getUserDetails("profile"));
+      // } else {
+      if (!user.name) {
         dispatch(getUserDetails("profile"));
+        dispatch(listMyOrders());
       } else {
         setName(user.name);
         setEmail(user.email);
@@ -126,15 +137,51 @@ const ProfileScreen = ({ location, history }) => {
         </div>
         <div className="orders">
           <h2>My Orders</h2>
-          {loading ? (
+          {loadingOrders ? (
             <Loader />
+          ) : errorOrders ? (
+            <ErrorMessage>{errorOrders}</ErrorMessage>
           ) : (
-            <div className="order-items">
-              <ul>
-                <li>order1</li>
-                <li>order2</li>
-              </ul>
-            </div>
+            <table className="order-items">
+              <tr>
+                <th>ORDER ID</th>
+                <th>DATE</th>
+                <th>TOTAL</th>
+                <th>PAID</th>
+                <th>DELIVERED</th>
+                <th></th>
+              </tr>
+              {orders.map((order) => (
+                <tr>
+                  <td>{order._id}</td>
+                  <td>{order.createdAt.substring(0, 10)}</td>
+                  <td>{order.totalPrice}</td>
+                  <td>
+                    {order.isPaid ? (
+                      <p className="done">
+                        PAID ON: {order.paidAt.substring(0, 10)}
+                      </p>
+                    ) : (
+                      <p className="not-done">Not Paid</p>
+                    )}
+                  </td>
+                  <td>
+                    {order.isDelivered ? (
+                      <p className="done">
+                        DELIVERED ON: {order.deliveredAt.substring(0, 10)}
+                      </p>
+                    ) : (
+                      <p className="not-done">Not Delivered</p>
+                    )}
+                  </td>
+                  <td>
+                    <Link to={`/order/${order._id}`}>
+                      <button>DETAILS</button>
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </table>
           )}
         </div>
       </div>
