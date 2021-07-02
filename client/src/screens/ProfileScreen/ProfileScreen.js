@@ -46,7 +46,8 @@ const ProfileScreen = ({ location, history }) => {
       //   dispatch({ type: USER_UPDATE_PROFILE_RESET });
       //   dispatch(getUserDetails("profile"));
       // } else {
-      if (!user.name) {
+      if (!user.name || !user || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));
         dispatch(listMyOrders());
       } else {
@@ -143,44 +144,46 @@ const ProfileScreen = ({ location, history }) => {
             <ErrorMessage>{errorOrders}</ErrorMessage>
           ) : (
             <table className="order-items">
-              <tr>
-                <th>ORDER ID</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
-                <th></th>
-              </tr>
-              {orders.map((order) => (
+              <tbody>
                 <tr>
-                  <td>{order._id}</td>
-                  <td>{order.createdAt.substring(0, 10)}</td>
-                  <td>{order.totalPrice}</td>
-                  <td>
-                    {order.isPaid ? (
-                      <p className="done">
-                        PAID ON: {order.paidAt.substring(0, 10)}
-                      </p>
-                    ) : (
-                      <p className="not-done">Not Paid</p>
-                    )}
-                  </td>
-                  <td>
-                    {order.isDelivered ? (
-                      <p className="done">
-                        DELIVERED ON: {order.deliveredAt.substring(0, 10)}
-                      </p>
-                    ) : (
-                      <p className="not-done">Not Delivered</p>
-                    )}
-                  </td>
-                  <td>
-                    <Link to={`/order/${order._id}`}>
-                      <button>DETAILS</button>
-                    </Link>
-                  </td>
+                  <th>ORDER ID</th>
+                  <th>DATE</th>
+                  <th>TOTAL</th>
+                  <th>PAID</th>
+                  <th>DELIVERED</th>
+                  <th></th>
                 </tr>
-              ))}
+                {orders.map((order) => (
+                  <tr key={order._id}>
+                    <td>{order._id}</td>
+                    <td>{order.createdAt.substring(0, 10)}</td>
+                    <td>{order.totalPrice}</td>
+                    <td>
+                      {order.isPaid ? (
+                        <p className="done">
+                          PAID ON: {order.paidAt.substring(0, 10)}
+                        </p>
+                      ) : (
+                        <p className="not-done">Not Paid</p>
+                      )}
+                    </td>
+                    <td>
+                      {order.isDelivered ? (
+                        <p className="done">
+                          DELIVERED ON: {order.deliveredAt.substring(0, 10)}
+                        </p>
+                      ) : (
+                        <p className="not-done">Not Delivered</p>
+                      )}
+                    </td>
+                    <td>
+                      <Link to={`/order/${order._id}`}>
+                        <button>DETAILS</button>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           )}
         </div>

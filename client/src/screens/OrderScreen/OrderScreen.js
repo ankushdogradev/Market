@@ -53,7 +53,8 @@ const OrderScreen = ({ match }) => {
     if (
       (Object.keys(orderItems).length === 0 &&
         Object.keys(shippingAddress).length === 0) ||
-      successPay
+      successPay ||
+      _id !== orderID
     ) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch(getOrderDetails(orderID));
@@ -64,11 +65,9 @@ const OrderScreen = ({ match }) => {
         setSdkReady(true);
       }
     }
-  }, [dispatch, orderID, successPay, orderItems, shippingAddress, isPaid]);
+  }, [dispatch, orderID, successPay, orderItems, shippingAddress, isPaid, _id]);
 
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult);
-
     dispatch(payOrder(orderID, paymentResult));
   };
 
@@ -107,7 +106,7 @@ const OrderScreen = ({ match }) => {
               <div className="order-payment-method">
                 <h2>PAYMENT METHOD: </h2>
                 {paymentMethod}
-                {console.log("isPaid: ", isPaid)}
+
                 {isPaid ? (
                   <strong className="paid"> [PAID] </strong>
                 ) : (
@@ -166,7 +165,7 @@ const OrderScreen = ({ match }) => {
                 <h2>TOTAL AMOUNT: </h2>
                 <strong>₹{totalPrice}</strong>
               </div>
-              {console.log("Is !Paid: ", !isPaid)}
+
               {!isPaid && (
                 <div>
                   {loadingPay && <Loader />}
@@ -189,14 +188,3 @@ const OrderScreen = ({ match }) => {
 };
 
 export default OrderScreen;
-
-// console.log("ORDER DETAILS: ", orderDetails);
-// console.log("LOADING: ", loading);
-// console.log("ORDER ITEM: ", orderItems);
-// console.log("SHIPPING ADDRESS: ", shippingAddress);
-// console.log("PAYMENT METHOD: ", paymentMethod);
-// console.log("TAX PRICE: ", taxPrice);
-// console.log("ITEM PRICE: ", itemPrice);
-// console.log("SHIPPING PRICE: ", shippingPrice);
-// console.log("TOTAL PRICE: ", totalPrice);
-// console.log("_ID: ", _id);
