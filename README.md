@@ -17,8 +17,17 @@ MARKET is an E-Commerce website.
 > - Mobile responsiveness
 
 ## Screenshots
+![Screenshot 2021-07-04 at 13-10-10 Markets](https://user-images.githubusercontent.com/75878788/124377741-1f81bc80-dccb-11eb-8898-6ff3a1b8906d.png)
+![Screenshot 2021-07-04 at 13-25-08 Markets](https://user-images.githubusercontent.com/75878788/124377763-4809b680-dccb-11eb-9e45-efac1b1438fe.png)
+![Screenshot 2021-07-04 at 13-25-57 Markets](https://user-images.githubusercontent.com/75878788/124377784-6bccfc80-dccb-11eb-9a43-542049cc0ddb.png)
+![Screenshot 2021-07-04 at 13-31-44 creativeCommonsBig jpg (WEBP Image, 680 × 257 pixels)](https://user-images.githubusercontent.com/75878788/124377913-3aa0fc00-dccc-11eb-9e4a-bebb09aee25d.png)
+![Screenshot 2021-07-04 at 13-27-02 Markets](https://user-images.githubusercontent.com/75878788/124377806-8f904280-dccb-11eb-99f7-b41f800d5803.png)
+![Screenshot 2021-07-04 at 13-27-53 Markets](https://user-images.githubusercontent.com/75878788/124377835-bd758700-dccb-11eb-9b81-885413951e36.png)
+![Screenshot 2021-07-04 at 13-24-41 Markets](https://user-images.githubusercontent.com/75878788/124377753-3a543100-dccb-11eb-9485-c274489e7f0a.png)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+
 
 ## Installation
 
@@ -54,7 +63,7 @@ To run this project, you will need to add the following environment variables to
 
 `PORT = 5000`
 
-`MONGO_URI = your mongodb uri: REMOVE DOUBLE QUOTES`
+`MONGO_URI = "your mongodb uri: REMOVE DOUBLE QUOTES"`
 
 `JWT_SECRET = "any string of your choice: REMOVE DOUBLE QUOTES "`
 
@@ -91,4 +100,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
