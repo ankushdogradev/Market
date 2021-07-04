@@ -1,14 +1,11 @@
 // TODO:
-// * heading and item are twocomponents so : display column
-// * add image name, Price, qty, delete option
 // * mobile responsive
-// * create div foe every item and dd heading above it
+// * Product delete itself from list after adding.
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
-// import CartItem from "../../components/CartItem/CartItem";
 import "./CartScreen.scss";
 
 const CartScreen = ({ match, location, history }) => {
