@@ -25,9 +25,13 @@ MARKET is an E-Commerce website.
 ![Screenshot 2021-07-04 at 13-24-41 Markets](https://user-images.githubusercontent.com/75878788/124377753-3a543100-dccb-11eb-9485-c274489e7f0a.png)
 
 
+## Tech Stack
 
+**Client:** React, Redux, Router, SCSS
 
+**Server:** Node, Express, Mongoose
 
+  
 ## Installation
 
 1. Fork/clone or download project.
@@ -54,6 +58,7 @@ npm i
 
 6. In the root folder create **.env** file
 
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -68,12 +73,14 @@ To run this project, you will need to add the following environment variables to
 
 `PAYPAL_CLIENT_ID = "your paypal client id: REMOVE DOUBLE QUOTES"`
 
+
 ## Run Locally
 
 To run the project locally, open CLI in **server** folder and **client** folder:
 
 - In server CLI enter `nodemon server.js`
 - In client CLI enter `npm start`
+
 
 ## License
 
