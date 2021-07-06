@@ -10,10 +10,12 @@ import ShippingScreen from "../../screens/ShippingScreen/ShippingScreen";
 import PaymentScreen from "../../screens/PaymentScreen/PaymentScreen";
 import PlaceOrderScreen from "../../screens/PlaceOrderScreen/PlaceOrderScreen";
 import OrderScreen from "../../screens/OrderScreen/OrderScreen";
+import UserListScreen from "../../screens/UserListScreen/UserListScreen";
 
 const Body = () => {
   return (
     <div className="content">
+      <Route path="/admin/userlist" component={UserListScreen} />
       <Route path="/order/:id" component={OrderScreen} />
       <Route path="/placeorder" component={PlaceOrderScreen} />
       <Route path="/payment" component={PaymentScreen} />

@@ -3,12 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../../redux/actions/userActions";
 import SearchBar from "../SearchBar/SearchBar";
+import { useDetectOutsideClick } from "./useDetectOutsideClick";
 import "./Navbar.scss";
 
 const Navbar = (props) => {
   const [clicked, setClicked] = useState(false);
-  const [drop, setDrop] = useState(false);
+  // const [drop, setDrop] = useState(false);
+  // const [adminDrop, setAdminDrop] = useState(false);
   const dropdownRef = useRef(null);
+  const [drop, setDrop] = useDetectOutsideClick(dropdownRef, false);
+  const [adminDrop, setAdminDrop] = useDetectOutsideClick(dropdownRef, false);
 
   const dispatch = useDispatch();
 
@@ -16,6 +20,7 @@ const Navbar = (props) => {
   const { userInfo } = userLogin;
 
   const logoutHandler = () => {
+    setDrop(!drop);
     dispatch(logout());
   };
 
@@ -27,24 +32,30 @@ const Navbar = (props) => {
     setDrop(!drop);
   };
 
-  useEffect(() => {
-    const pageClickEvent = (e) => {
-      if (
-        dropdownRef.current !== null &&
-        !dropdownRef.current.contains(e.target)
-      ) {
-        setDrop(!drop);
-      }
-    };
+  const adminDropClick = () => {
+    setAdminDrop(!adminDrop);
+  };
 
-    if (drop) {
-      window.addEventListener("click", pageClickEvent);
-    }
+  // useEffect(() => {
+  //   const pageClickEvent = (e) => {
+  //     if (
+  //       dropdownRef.current !== null &&
+  //       !dropdownRef.current.contains(e.target)
+  //     ) {
+  //       setDrop(!drop);
+  //       console.log("1");
+  //     }
+  //   };
 
-    return () => {
-      window.removeEventListener("click", pageClickEvent);
-    };
-  }, [drop]);
+  //   if (drop) {
+  //     window.addEventListener("click", pageClickEvent);
+  //     console.log("2");
+  //   }
+  //   console.log("3");
+  //   return () => {
+  //     window.removeEventListener("click", pageClickEvent);
+  //   };
+  // }, [drop]);
 
   return (
     <>
@@ -78,6 +89,8 @@ const Navbar = (props) => {
                 ref={dropdownRef}
                 className={`nav-drop-content ${drop ? "active" : "inactive"}`}
               >
+                {console.log(`dropClick: ${drop}`)}
+
                 <ul>
                   <Link to={`/profile`} className="nav-Link">
                     <li id="item1">
@@ -102,6 +115,38 @@ const Navbar = (props) => {
                   Sign Up
                 </button>
               </Link>
+            </div>
+          )}
+          {userInfo && userInfo.isAdmin && (
+            <div className="nav-drop-container">
+              <button className="nav-drop" onClick={adminDropClick}>
+                {console.log(`adminDropClick: ${adminDrop}`)}
+                ADMIN CONTROL
+              </button>
+              <div
+                ref={dropdownRef}
+                className={`nav-drop-content ${
+                  adminDrop ? "active" : "inactive"
+                }`}
+              >
+                <ul>
+                  <Link to={`/admin/userList`} className="nav-Link">
+                    <li id="item1">
+                      <h4>USERS</h4>
+                    </li>
+                  </Link>
+                  <Link to={`admin/productlist`} className="nav-Link">
+                    <li id="item1">
+                      <h4>PRODUCTS</h4>
+                    </li>
+                  </Link>
+                  <Link to={`admin/orderlist`} className="nav-Link">
+                    <li id="item1">
+                      <h4>ORDERS</h4>
+                    </li>
+                  </Link>
+                </ul>
+              </div>
             </div>
           )}
         </ul>
