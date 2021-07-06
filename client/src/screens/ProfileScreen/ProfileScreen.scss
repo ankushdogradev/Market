@@ -124,7 +124,7 @@
       th {
         text-align: center;
         padding: 1rem;
-        border: 0.2rem solid black;
+        border: 0.1rem solid black;
       }
 
       tr {
@@ -132,9 +132,7 @@
         color: $text-color;
         font-weight: bold;
       }
-      // tr:nth-child(even) {
-      //   background: $second-bg-color;
-      // }
+
       tr:hover {
         color: white;
       }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../../redux/actions/userActions";
@@ -8,8 +8,6 @@ import "./Navbar.scss";
 
 const Navbar = (props) => {
   const [clicked, setClicked] = useState(false);
-  // const [drop, setDrop] = useState(false);
-  // const [adminDrop, setAdminDrop] = useState(false);
   const dropdownRef = useRef(null);
   const [drop, setDrop] = useDetectOutsideClick(dropdownRef, false);
   const [adminDrop, setAdminDrop] = useDetectOutsideClick(dropdownRef, false);
@@ -35,27 +33,6 @@ const Navbar = (props) => {
   const adminDropClick = () => {
     setAdminDrop(!adminDrop);
   };
-
-  // useEffect(() => {
-  //   const pageClickEvent = (e) => {
-  //     if (
-  //       dropdownRef.current !== null &&
-  //       !dropdownRef.current.contains(e.target)
-  //     ) {
-  //       setDrop(!drop);
-  //       console.log("1");
-  //     }
-  //   };
-
-  //   if (drop) {
-  //     window.addEventListener("click", pageClickEvent);
-  //     console.log("2");
-  //   }
-  //   console.log("3");
-  //   return () => {
-  //     window.removeEventListener("click", pageClickEvent);
-  //   };
-  // }, [drop]);
 
   return (
     <>
@@ -89,8 +66,6 @@ const Navbar = (props) => {
                 ref={dropdownRef}
                 className={`nav-drop-content ${drop ? "active" : "inactive"}`}
               >
-                {console.log(`dropClick: ${drop}`)}
-
                 <ul>
                   <Link to={`/profile`} className="nav-Link">
                     <li id="item1">
@@ -120,7 +95,6 @@ const Navbar = (props) => {
           {userInfo && userInfo.isAdmin && (
             <div className="nav-drop-container">
               <button className="nav-drop" onClick={adminDropClick}>
-                {console.log(`adminDropClick: ${adminDrop}`)}
                 ADMIN CONTROL
               </button>
               <div
@@ -136,12 +110,12 @@ const Navbar = (props) => {
                     </li>
                   </Link>
                   <Link to={`admin/productlist`} className="nav-Link">
-                    <li id="item1">
+                    <li>
                       <h4>PRODUCTS</h4>
                     </li>
                   </Link>
                   <Link to={`admin/orderlist`} className="nav-Link">
-                    <li id="item1">
+                    <li id="item2">
                       <h4>ORDERS</h4>
                     </li>
                   </Link>
