@@ -117,3 +117,17 @@ exports.updateUserProfile = async (req, res, next) => {
     next(error);
   }
 };
+
+//  @description: Get all users
+//  @route:       GET /api/users
+//  @access:      Private/Admin
+exports.getUsers = async (req, res, next) => {
+  try {
+    const user = await User.find({});
+    res.json(user);
+  } catch (error) {
+    error = new Error("cant find any user's profile");
+    error.status = 404;
+    next(error);
+  }
+};
