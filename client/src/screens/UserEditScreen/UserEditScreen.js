@@ -52,10 +52,10 @@ const UserEditScreen = ({ match, history }) => {
     <>
       <div className="userEdit-container">
         {error && <ErrorMessage error={error} />}
+        {loadingUpdate && <Loader />}
+        {errorUpdate && <ErrorMessage>{errorUpdate}</ErrorMessage>}
         <div className="userEdit-form">
           <h1>EDIT USER</h1>
-          {loadingUpdate && <Loader />}
-          {errorUpdate && <ErrorMessage>{errorUpdate}</ErrorMessage>}
           {loading ? (
             <Loader />
           ) : error ? (
