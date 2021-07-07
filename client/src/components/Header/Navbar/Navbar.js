@@ -109,12 +109,12 @@ const Navbar = (props) => {
                       <h4>USERS</h4>
                     </li>
                   </Link>
-                  <Link to={`admin/productlist`} className="nav-Link">
+                  <Link to={`/admin/productlist`} className="nav-Link">
                     <li>
                       <h4>PRODUCTS</h4>
                     </li>
                   </Link>
-                  <Link to={`admin/orderlist`} className="nav-Link">
+                  <Link to={`/admin/orderlist`} className="nav-Link">
                     <li id="item2">
                       <h4>ORDERS</h4>
                     </li>

@@ -1,6 +1,3 @@
-// Fix react router thingi
-// COMPLETE MAN COMPLETE YOU CAN DO THIS
-
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
