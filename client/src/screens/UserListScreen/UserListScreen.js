@@ -68,7 +68,7 @@ const UserListScreen = ({ history }) => {
                     )}
                   </td>
                   <td>
-                    <Link to={`/user/${user._id}/edit`}>
+                    <Link to={`admin/user/${user._id}/edit`}>
                       <button>EDIT</button>
                     </Link>
                     <button onClick={() => deleteHandler(user._id)}>

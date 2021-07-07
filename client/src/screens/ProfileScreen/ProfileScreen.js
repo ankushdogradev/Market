@@ -1,5 +1,3 @@
-// ERROR: ORDER ID BUTTON DETAILS
-
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -42,10 +40,6 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push("/login");
     } else {
-      // if (!user.name || !user || success) {
-      //   dispatch({ type: USER_UPDATE_PROFILE_RESET });
-      //   dispatch(getUserDetails("profile"));
-      // } else {
       if (!user.name || !user || success) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));

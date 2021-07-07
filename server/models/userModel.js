@@ -19,10 +19,10 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: true,
-      match: [
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-        "Password must contain minimum eight characters, atleast one letter, one number & one speccial character ",
-      ],
+      // match: [
+      //   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      //   "Password must contain minimum eight characters, atleast one letter, one number & one speccial character ",
+      // ],
     },
     isAdmin: {
       type: Boolean,
@@ -43,11 +43,11 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
+    return;
   }
 
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
-
 const User = mongoose.model("User", userSchema);
 module.exports = User;

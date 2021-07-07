@@ -23,7 +23,6 @@ exports.authUser = async (req, res, next) => {
       next(error);
     }
   } catch (error) {
-    console.log("_id: ", user._id);
     error = new Error("Invalid user data");
     error.status = 401;
     next(error);
@@ -110,10 +109,12 @@ exports.updateUserProfile = async (req, res, next) => {
         isAdmin: updatedUser.isAdmin,
         token: generateToken(updatedUser._id),
       });
+    } else {
+      const error = new Error("User not found");
+      error.status = 404;
+      next(error);
     }
   } catch (error) {
-    error = new Error("User not found");
-    error.status = 404;
     next(error);
   }
 };
@@ -149,6 +150,56 @@ exports.deleteUser = async (req, res, next) => {
   } catch (error) {
     error = new Error("cant find any user's profile");
     error.status = 404;
+    next(error);
+  }
+};
+
+//  @description: Get user by id
+//  @route:       GET /api/users:id
+//  @access:      Private/Admin
+exports.getUserById = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id).select("-password");
+    if (user) {
+      res.json(user);
+    } else {
+      const error = new Error("User Not Found");
+      error.status = 404;
+      next(error);
+    }
+  } catch (error) {
+    error = new Error("cant find any user's profile");
+    error.status = 404;
+    next(error);
+  }
+};
+
+//  @description: Update user
+//  @route:       PUT /api/users/:id
+//  @access:      Private/Admin
+exports.updateUser = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (user) {
+      user.name = req.body.name || user.name;
+      user.email = req.body.email || user.email;
+      user.isAdmin = req.body.isAdmin;
+
+      const updatedUser = await user.save();
+
+      res.json({
+        _id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        isAdmin: updatedUser.isAdmin,
+      });
+    } else {
+      const error = new Error("Sorry, user Not Found");
+      error.status = 404;
+      next(error);
+    }
+  } catch (error) {
     next(error);
   }
 };
