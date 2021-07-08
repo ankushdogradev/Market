@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
-import { listProducts } from "../../redux/actions/productActions";
+import {
+  listProducts,
+  deleteProduct,
+  createProduct,
+} from "../../redux/actions/productActions";
+import { PRODUCT_CREATE_RESET } from "../../redux/constants/productConstants";
 import "./ProductListScreen.scss";
 
 const ProductListScreen = ({ history, match }) => {
@@ -12,25 +17,52 @@ const ProductListScreen = ({ history, match }) => {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
+  const productDelete = useSelector((state) => state.productDelete);
+  const {
+    loading: loadingDelete,
+    error: errorDelete,
+    success: successDelete,
+  } = productDelete;
+
+  const productCreate = useSelector((state) => state.productCreate);
+  const {
+    loading: loadingCreate,
+    error: errorCreate,
+    success: successCreate,
+    product: createdProduct,
+  } = productCreate;
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   useEffect(() => {
-    if (userInfo && userInfo.isAdmin) {
-      dispatch(listProducts());
-    } else {
+    dispatch({ type: PRODUCT_CREATE_RESET });
+    if (!userInfo.isAdmin) {
       history.push("/login");
     }
-  }, [dispatch, history, userInfo]);
+
+    if (successCreate) {
+      history.push(`/admin/product/${createdProduct._id}/edit`);
+    } else {
+      dispatch(listProducts());
+    }
+  }, [
+    dispatch,
+    history,
+    userInfo,
+    successDelete,
+    successCreate,
+    createdProduct,
+  ]);
 
   const deleteHandler = (id) => {
     if (window.confirm("Do you want to delete the user?")) {
-      // dispatch(deleteProducts(id));
+      dispatch(deleteProduct(id));
     }
   };
 
   const createProductHandler = () => {
-    console.log("Product Created");
+    dispatch(createProduct());
   };
 
   return (
@@ -42,6 +74,11 @@ const ProductListScreen = ({ history, match }) => {
             <i className="fas fa-plus"></i> CREATE PRODUCT
           </button>
         </div>
+        {loadingDelete && <Loader />}
+        {errorDelete && <ErrorMessage>{errorDelete}</ErrorMessage>}
+        {loadingCreate && <Loader />}
+        {errorCreate && <ErrorMessage>{errorCreate}</ErrorMessage>}
+
         {loading ? (
           <Loader />
         ) : error ? (
@@ -65,7 +102,7 @@ const ProductListScreen = ({ history, match }) => {
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td>
-                    <Link to={`admin/product/${product._id}/edit`}>
+                    <Link to={`/admin/product/${product._id}/edit`}>
                       <button>EDIT</button>
                     </Link>
                     <button onClick={() => deleteHandler(product._id)}>

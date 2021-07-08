@@ -1,19 +1,6 @@
-/************************************************************************
- * TODO:
- * - Add product recomendation on right side. [Only in Desktop Mode]
- *************************************************************************
- * TODO: 3/06/21
- * - Complete The add to caart redux state
- * - try to understand rewatch all videos
- * - then implement Add to cart
- * - add counter in navbar cart-Icon
- * - Style Quantity select option
- *************************************************************************
- */
-
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { detailProduct } from "./../../redux/actions/productActions";
+import { listProductDetails } from "./../../redux/actions/productActions";
 import { addToCart } from "../../redux/actions/cartActions";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
@@ -25,7 +12,7 @@ const ProductScreen = ({ match, history }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(detailProduct(match.params.id));
+    dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
 
   const productDetails = useSelector((state) => state.productDetails);
