@@ -1,12 +1,16 @@
 require("dotenv").config({
   path: "C:/Users/dogra/Documents/Web Development/Portfolio/FullStack/market/.env",
 });
-
+const path = require("path");
 const express = require("express");
 const connectDB = require("./config/db");
 connectDB();
 const app = express();
 app.use(express.json());
+
+// Express Static Middleware
+const staticPath = path.join(__dirname, "../uploads");
+app.use("/uploads", express.static(staticPath));
 
 // Routes
 const productRoutes = require("./routes/productRoutes");
@@ -17,7 +21,7 @@ const uploadRoutes = require("./routes/uploadRoutes");
 app.use("/api", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
-// app.use("/api/", uploadRoutes);
+app.use("/api/upload", uploadRoutes);
 
 app.get("/api/config/paypal", (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
