@@ -35,7 +35,7 @@ const UserListScreen = ({ history }) => {
   return (
     <>
       <div className="userListScreen">
-        <h1>Users</h1>
+        <h1>USERS</h1>
         {loading ? (
           <Loader />
         ) : error ? (

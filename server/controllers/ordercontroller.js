@@ -101,3 +101,39 @@ exports.getMyOrders = async (req, res, next) => {
     next(error);
   }
 };
+
+//  @description: GET all orders
+//  @route: GET /api/orders
+//  @access: Private/Admin
+exports.getOrders = async (req, res, next) => {
+  try {
+    const orders = await Order.find({}).populate("user", "id name");
+    res.json(orders);
+  } catch (error) {
+    next(error);
+  }
+};
+
+//  @description: Update order to out for delivery
+//  @route: GET /api/orders/:id/deliver
+//  @access: Private/Admin
+exports.updateOrderToDelivered = async (req, res, next) => {
+  try {
+    const order = await Order.findById(req.params.id);
+
+    if (order) {
+      order.isDelivered = true;
+      order.deliveredAt = Date.now();
+
+      const updateOrder = await order.save();
+
+      res.json(updateOrder);
+    } else {
+      error = new Error("Order not found");
+      error.status = 404;
+      next(error);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
