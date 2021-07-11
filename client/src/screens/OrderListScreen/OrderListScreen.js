@@ -46,7 +46,6 @@ const OrderListScreen = ({ history }) => {
               </tr>
               {orders.map((order) => (
                 <tr key={order._id}>
-                  {console.log("Order.isPaid", order.isPaid)}
                   <td>{order._id}</td>
                   <td>{order.user && order.user.name}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
@@ -91,9 +90,6 @@ const OrderListScreen = ({ history }) => {
                     <Link to={`/order/${order._id}`}>
                       <button>DETAILS</button>
                     </Link>
-                    {/*<button onClick={() => deleteHandler(user._id)}>
-                      DELETE
-                    </button>*/}
                   </td>
                 </tr>
               ))}

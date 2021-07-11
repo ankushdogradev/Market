@@ -1,12 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { logout } from "../../../redux/actions/userActions";
 import SearchBar from "../SearchBar/SearchBar";
 import { useDetectOutsideClick } from "./useDetectOutsideClick";
 import "./Navbar.scss";
 
-const Navbar = (props) => {
+const Navbar = () => {
   const [clicked, setClicked] = useState(false);
   const dropdownRef = useRef(null);
   const [drop, setDrop] = useDetectOutsideClick(dropdownRef, false);
@@ -14,8 +14,16 @@ const Navbar = (props) => {
 
   const dispatch = useDispatch();
 
+  const history = useHistory();
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  useEffect(() => {
+    if (!userInfo) {
+      history.push("/login");
+    }
+  }, [history, userInfo]);
 
   const logoutHandler = () => {
     setDrop(!drop);

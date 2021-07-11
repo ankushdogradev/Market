@@ -93,6 +93,8 @@ const OrderScreen = ({ match, history }) => {
     shippingAddress,
     isPaid,
     _id,
+    history,
+    userInfo,
   ]);
 
   const successPaymentHandler = (paymentResult) => {
