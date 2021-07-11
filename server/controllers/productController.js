@@ -106,3 +106,50 @@ exports.updateProduct = async (req, res, next) => {
     next(error);
   }
 };
+
+//  @description: Create New Review
+//  @route: POST /api/product/:id/reviews
+//  @access: Private
+exports.createProductReview = async (req, res, next) => {
+  try {
+    const { rating, comment } = req.body;
+    const product = await Product.findById(req.params.id);
+
+    if (product) {
+      const alreadyReviewed = product.reviews.find(
+        (r) => r.user.toString() === req.user._id.toString()
+      );
+
+      if (alreadyReviewed) {
+        const error = new Error("Product already reviewed");
+        error.status = 400;
+        next(error);
+      }
+
+      const review = {
+        name: req.user.name,
+        rating: Number(rating),
+        comment,
+        user: req.user._id,
+      };
+
+      product.reviews.push(review);
+      product.numReviews = product.reviews.length;
+      product.rating =
+        product.reviews.reduce((acc, item) => item.rating + acc, 0) /
+        product.reviews.length;
+
+      await product.save();
+      res.status(201).json({ message: "Review added" });
+    } else {
+      const error = new Error("Product not Found!");
+      error.status = 404;
+      next(error);
+    }
+
+    const createdProduct = await product.save();
+    res.status(201).json(product);
+  } catch (error) {
+    next(error);
+  }
+};

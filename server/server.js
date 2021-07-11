@@ -4,8 +4,15 @@ require("dotenv").config({
 const path = require("path");
 const express = require("express");
 const connectDB = require("./config/db");
+const morgan = require("morgan");
+
 connectDB();
 const app = express();
+
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
 app.use(express.json());
 
 // Express Static Middleware
