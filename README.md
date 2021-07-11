@@ -9,10 +9,15 @@ MARKET is an E-Commerce website.
 - Full featured shopping cart.
 - CHECKOUT PROCESS: shipping, payment method
 - PayPal integration.
+- Admin account from where:
+  * Can view all products.
+  * Can view all order history.
+  * New products can be added/edited.
+  * Existing users can be converted into admin (vice-versa).
+  * Admin can check and mark order delivered or not. 
 
 > ### Upcomming features
 >
-> - Admin account from where product and user management can be done easily.
 > - Search for finding products easily.
 > - Mobile responsiveness
 
@@ -23,7 +28,7 @@ MARKET is an E-Commerce website.
 ![Screenshot 2021-07-04 at 13-27-02 Markets](https://user-images.githubusercontent.com/75878788/124377806-8f904280-dccb-11eb-99f7-b41f800d5803.png)
 ![Screenshot 2021-07-04 at 13-27-53 Markets](https://user-images.githubusercontent.com/75878788/124377835-bd758700-dccb-11eb-9b81-885413951e36.png)
 
-**ADMIN CONTROLLER**
+**ADMIN CONTROLL**
 ![image](https://user-images.githubusercontent.com/75878788/125095762-24db6e80-e0f2-11eb-9149-30eca694b5ca.png)
 ![image](https://user-images.githubusercontent.com/75878788/125095794-2dcc4000-e0f2-11eb-87ba-f2cf1b70a108.png)
 ![image](https://user-images.githubusercontent.com/75878788/125095880-3e7cb600-e0f2-11eb-895e-c812dc2a948d.png)
