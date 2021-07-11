@@ -14,7 +14,7 @@ MARKET is an E-Commerce website.
   * Can view all order history.
   * New products can be added/edited.
   * Existing users can be converted into admin (vice-versa).
-  * Admin can check and mark order delivered or not. 
+  * Admin can check and mark orders, delivered or not. 
 
 > ### Upcomming features
 >
