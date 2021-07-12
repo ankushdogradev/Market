@@ -148,16 +148,16 @@ const ProductEditScreen = ({ match, history }) => {
                     onChange={(e) => setImage(e.target.value)}
                   />
                   <p>Or upload file:</p>
-                  <div class="file-input">
+                  <div className="file-input">
                     <input
                       type="file"
                       id="file"
                       className="file"
                       onChange={uploadFileHandler}
                     />
-                    <label for="file">
+                    <label htmlFor="file">
                       Select file
-                      <p class="file-name"></p>
+                      <p className="file-name"></p>
                     </label>
                   </div>
                 </div>

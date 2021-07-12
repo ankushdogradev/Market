@@ -9,7 +9,6 @@ import "./PlaceOrderScreen.scss";
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  console.log("CART: ", cart);
   const {
     payment: { paymentMethod },
     shippingAddress,

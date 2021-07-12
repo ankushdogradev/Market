@@ -11,18 +11,16 @@ import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import "./HomeScreen.scss";
 
-const HomeScreen = () => {
+const HomeScreen = ({ match }) => {
+  const keyword = match.params.id;
+
   const dispatch = useDispatch();
 
-  //   As soon as component runs, useEffect() run's
   useEffect(() => {
-    // Fire/calls listProducts:Action/funtion
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword));
+  }, [dispatch, keyword]);
 
-  //  here we are taking data from productList reducer stored in store.js
   const productList = useSelector((state) => state.productList);
-  // we are De-structuring and pulling what we want out from productList i.e.: loading, error, product.
   const { loading, error, products } = productList;
 
   return (

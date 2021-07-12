@@ -21,23 +21,26 @@ import {
   PRODUCT_CREATE_REVIEW_REQUEST,
 } from "./../constants/productConstants";
 
-export const listProducts = () => async (dispatch) => {
-  try {
-    dispatch({ type: PRODUCT_LIST_REQUEST });
+export const listProducts =
+  (keyword = "") =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: PRODUCT_LIST_REQUEST });
+      console.log(keyword);
 
-    const { data } = await axios.get("/api/products");
+      const { data } = await axios.get(`/api/products?keyword=${keyword}`);
 
-    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data.products });
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_LIST_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+      dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data.products });
+    } catch (error) {
+      dispatch({
+        type: PRODUCT_LIST_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 export const listProductDetails = (props) => async (dispatch) => {
   try {

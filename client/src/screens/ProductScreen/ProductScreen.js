@@ -3,15 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   listProductDetails,
   createProductReview,
-  createProduct,
 } from "./../../redux/actions/productActions";
 import { addToCart } from "../../redux/actions/cartActions";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import {
-  PRODUCT_CREATE_REVIEW_FAIL,
-  PRODUCT_CREATE_REVIEW_RESET,
-} from "../../redux/constants/productConstants";
+import { PRODUCT_CREATE_REVIEW_RESET } from "../../redux/constants/productConstants";
 import "./ProductScreen.scss";
 
 const ProductScreen = ({ match, history }) => {
@@ -66,58 +62,64 @@ const ProductScreen = ({ match, history }) => {
       ) : error ? (
         <ErrorMessage error={error} />
       ) : (
-        <div className="product-container">
-          <div className="product-image">
-            <img src={product.image} alt="Product" />
-          </div>
-          <div className="product-content">
-            <h1>{product.name}</h1>
-            <h3>{`Price: ₹${product.price}`}</h3>
-            <h3>{`Rating: ${product.rating}`}</h3>
-            {product.countInStock > 0 ? (
-              <h4 className="product-instock">In Stock</h4>
-            ) : (
-              <h4 className="product-nostock">Out of Stock</h4>
-            )}
-            {product.countInStock > 0 ? (
-              <div className="product-inline">
-                {product.countInStock > 0 && (
-                  <div className="product-select">
-                    <select
-                      value={qty}
-                      onChange={(e) => setQty(e.target.value)}
-                    >
-                      {[...Array(product.countInStock).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
+        <div className="prod-review-container">
+          <div className="product-container">
+            <div className="product-image">
+              <img src={product.image} alt="Product" />
+            </div>
+            <div className="product-content">
+              <h1>{product.name}</h1>
+              <h3>{`Price: ₹${product.price}`}</h3>
+              <h3>{`Rating: ${product.rating}`}</h3>
+              {product.countInStock > 0 ? (
+                <h4 className="product-instock">In Stock</h4>
+              ) : (
+                <h4 className="product-nostock">Out of Stock</h4>
+              )}
+              {product.countInStock > 0 ? (
+                <div className="product-inline">
+                  {product.countInStock > 0 && (
+                    <div className="product-select">
+                      <select
+                        value={qty}
+                        onChange={(e) => setQty(e.target.value)}
+                      >
+                        {[...Array(product.countInStock).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
 
-                <button onClick={addToCartHandler}>Add To Cart</button>
-                <button onClick={buyNowHandler}>Buy Now</button>
-              </div>
-            ) : (
-              <div className="product-inline"></div>
-            )}
-            <p>{product.description}</p>
+                  <button onClick={addToCartHandler}>Add To Cart</button>
+                  <button onClick={buyNowHandler}>Buy Now</button>
+                </div>
+              ) : (
+                <div className="product-inline"></div>
+              )}
+              <p>{product.description}</p>
+            </div>
           </div>
-          <div>
-            <h2>Reviews</h2>
-            {console.log(product.reviews.length === 0)}
+          <div className="review-container">
+            <h1>Reviews</h1>
+            <hr />
             {product.reviews.length === 0 && <h3>No Reviews!!</h3>}
-            <div>
-              {product.reviews.map((review) => (
-                <ul key={review._id}>
-                  <strong>{review.name}</strong>
-                  <strong>{review.rating}</strong>
-                  <p>{review.createdAt.substring(0, 10)}</p>
-                  <p>{review.comment}</p>
-                </ul>
-              ))}
-              <div>
+            <div className="review-customer-write">
+              <div className="review-customer">
+                {product.reviews.map((review) => (
+                  <div className="review-customer-card">
+                    <ul key={review._id}>
+                      <h2>{`${review.name}`}</h2> <br />
+                      <h3>{`Rating: ${review.rating}`}</h3>
+                      <p>{review.createdAt.substring(0, 10)}</p>
+                      <p className="cmnt">{review.comment}</p>
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <div className="review-write">
                 <h2>Write a review: </h2>
                 {errorProductreview && (
                   <ErrorMessage>{errorProductreview}</ErrorMessage>
@@ -125,14 +127,13 @@ const ProductScreen = ({ match, history }) => {
                 {userInfo ? (
                   <form onSubmit={submitHandler}>
                     <label>
-                      Review:
                       <select
                         value={rating}
                         onChange={(e) => {
                           setRating(e.target.value);
                         }}
                       >
-                        <option value="">Select..</option>
+                        <option value="">RATING</option>
                         <option value="1">1- POOR</option>
                         <option value="2">2- BELOW AVERAGE</option>
                         <option value="3">3- AVERAGE</option>
@@ -141,11 +142,11 @@ const ProductScreen = ({ match, history }) => {
                       </select>
                     </label>
                     <div>
-                      <h3>comment</h3>
+                      <h3>Enter:</h3>
                       <textarea
-                        // className=""
+                        className="text-comment"
                         type="text"
-                        placeholder="Comment"
+                        placeholder="review"
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                       />

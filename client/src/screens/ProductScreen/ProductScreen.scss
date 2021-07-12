@@ -1,71 +1,177 @@
 @import "../../sass/variables";
 
-.product-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  margin-left: 8rem;
+.prod-review-container {
+  button {
+    margin-left: 1rem;
+    background: $third-bg-color;
+    color: $text-color;
+    border: none;
+    border-radius: 12px;
+    height: 35px;
+    width: auto;
+    padding: 10px 10px;
+    outline: none;
+    box-shadow: 0 2px #999;
+    font-weight: bold;
+  }
+  button:active {
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+  }
+  button:hover {
+    background: $accent-color;
+    color: black;
+  }
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-left: 8rem;
 
-  .product-image {
-    background: none;
-    width: 25rem;
-    height: 20rem;
-    margin: 2rem;
-    box-shadow: 0 0px 20px 0 $accent-color, 0 0px 30px 0 $accent-color;
-
-    img {
-      height: 20rem;
+    .product-image {
+      background: none;
       width: 25rem;
+      height: 20rem;
+      margin: 2rem;
+      box-shadow: 0 0px 20px 0 $accent-color, 0 0px 30px 0 $accent-color;
+
+      img {
+        height: 20rem;
+        width: 25rem;
+      }
+    }
+
+    .product-content {
+      background: none;
+      color: $text-color;
+      width: 25rem;
+      height: 20rem;
+      margin: 2rem;
+
+      h1 {
+        color: $accent-color;
+        font-size: 3rem;
+        font-weight: bolder;
+        padding-bottom: 2rem;
+      }
+
+      .product-instock {
+        color: greenyellow;
+      }
+
+      .product-nostock {
+        color: red;
+      }
+
+      .product-inline {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0 2rem 0;
+
+        select {
+          background: $third-bg-color;
+          color: $text-color;
+          border: none;
+          border-radius: 8px;
+          padding: 0.2rem;
+          width: auto;
+        }
+      }
     }
   }
 
-  .product-content {
-    background: none;
-    color: $text-color;
-    width: 25rem;
-    height: 20rem;
-    margin: 2rem;
+  .review-container {
+    margin-left: 10rem;
 
     h1 {
-      color: $accent-color;
-      font-size: 3rem;
-      font-weight: bolder;
-      padding-bottom: 2rem;
+      margin: 3rem 0 0 0;
+      color: $text-color;
     }
 
-    .product-instock {
-      color: greenyellow;
+    h3 {
+      color: $text-color;
     }
 
-    .product-nostock {
-      color: red;
+    hr {
+      margin: 0.2rem 8rem 2rem 0;
+      border-top: 3px dashed $accent-color;
     }
-
-    .product-inline {
+    .review-customer-write {
       display: flex;
-      align-items: center;
-      padding: 0.5rem 0 2rem 0;
+      // justify-content: space-between;
+      flex-direction: column;
 
-      button {
-        margin-left: 1rem;
-        background: $third-bg-color;
+      .review-customer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: center;
+        flex: 1;
+        // margin: 0.2rem;
+
+        .review-customer-card {
+          background: $second-bg-color;
+          padding: 1rem;
+          margin: 0.5rem 1rem 0.5rem 0;
+          width: 15rem;
+          border-radius: 16px;
+          color: $text-color;
+
+          h2 {
+            color: $accent-color;
+          }
+
+          .cmnt {
+            margin-top: 1rem;
+          }
+        }
+      }
+
+      .review-write {
+        background: $second-bg-color;
         color: $text-color;
-        border: none;
-        border-radius: 12px;
-        height: 35px;
-        width: auto;
-        padding: 10px 10px;
-        outline: none;
-        box-shadow: 0 2px #999;
-        font-weight: bold;
-      }
-      button:active {
-        box-shadow: 0 2px #666;
-        transform: translateY(2px);
-      }
-      button:hover {
-        background: $accent-color;
-        color: black;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        width: 27rem;
+        height: 25rem;
+        border-radius: 16px;
+        margin: 2rem 8rem 2rem 0;
+
+        h2 {
+          margin-bottom: 1rem;
+        }
+
+        h3 {
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+        }
+
+        select {
+          width: auto;
+          background: $main-bg-color;
+          color: $text-color;
+          border: none;
+          border-radius: 8px;
+          padding: 0.2rem;
+        }
+
+        .text-comment {
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 12px;
+          font-weight: bold;
+          background: $third-bg-color;
+          color: $text-color;
+          border: none;
+          height: 10rem;
+          width: 25rem;
+          resize: none;
+        }
+
+        button {
+          margin: 0;
+          width: 5rem;
+        }
       }
     }
   }
