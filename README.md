@@ -7,8 +7,9 @@ MARKET is an E-Commerce website.
 - User can log into his/her account or create a new one.
 - USER PROFILE: from where they can check order status about payment and shipping.
 - Full featured shopping cart.
-- CHECKOUT PROCESS: shipping, payment method
+- CHECKOUT PROCESS: shipping, payment method.
 - PayPal integration.
+- User can give reviews to products.
 - Admin account from where:
   * Can view all products.
   * Can view all order history.
