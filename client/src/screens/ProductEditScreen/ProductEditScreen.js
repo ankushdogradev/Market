@@ -160,6 +160,7 @@ const ProductEditScreen = ({ match, history }) => {
                       <p className="file-name"></p>
                     </label>
                   </div>
+                  {uploading && <Loader />}
                 </div>
                 <div className="item">
                   <h3>BRAND NAME</h3>
