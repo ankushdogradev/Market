@@ -10,6 +10,7 @@ MARKET is an E-Commerce website.
 - CHECKOUT PROCESS: shipping, payment method.
 - PayPal integration.
 - User can give reviews to products.
+- Search for finding products easily.
 - Admin account from where:
   * Can view all products.
   * Can view all order history.
@@ -17,10 +18,10 @@ MARKET is an E-Commerce website.
   * Existing users can be converted into admin (vice-versa).
   * Admin can check and mark orders, delivered or not. 
 
-> ### Upcomming features
->
-> - Search for finding products easily.
-> - Mobile responsiveness
+> ### Things that I might add in future:
+> - second payment gateway like razorpay, stripe, paytm etc.
+> - Signup/login using google or github.
+> - Mobile Responsiveness.
 
 ## Screenshots
 ![Screenshot 2021-07-04 at 13-10-10 Markets](https://user-images.githubusercontent.com/75878788/124377741-1f81bc80-dccb-11eb-8898-6ff3a1b8906d.png)
