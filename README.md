@@ -109,13 +109,13 @@ To run the project locally, open CLI in **server** folder and **client** folder:
 Sample User Logins
 
 admn@xyz.com (Admin)
-abc@123456
+abc$123456
 
 messi@xyz.com (Customer)
-abc@123456
+abc$123456
 
 ronaldo@xyz.com (Customer)
-abc@123456
+abc$123456
 ```
 
 ## Deploying To Heroku
