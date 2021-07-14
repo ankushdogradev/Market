@@ -86,6 +86,17 @@ To run this project, you will need to add the following environment variables to
 
 `PAYPAL_CLIENT_ID = "your paypal client id: REMOVE DOUBLE QUOTES"`
 
+## Seed Database
+
+You can use the following commands to seed the database with some sample users and products as well as destroy all data
+
+```
+# Import data
+npm run data:import
+
+# Destroy data
+npm run data:destroy
+```
 
 ## Run Locally
 
@@ -94,6 +105,22 @@ To run the project locally, open CLI in **server** folder and **client** folder:
 - In server CLI enter `nodemon server.js`
 - In client CLI enter `npm start`
 
+```
+Sample User Logins
+
+admn@xyz.com (Admin)
+abc@123456
+
+messi@xyz.com (Customer)
+abc@123456
+
+ronaldo@xyz.com (Customer)
+abc@123456
+```
+
+## Deploying To Heroku
+- Heroku postbuild script is added to **package.json**. No, need to build manually. 
+- Just install heroku and push. 
 
 ## License
 
