@@ -70,6 +70,12 @@ npm i
 - [MongoDB Atlas Account](https://www.mongodb.com/cloud/atlas/register) for mongo URI.
 
 6. In the root folder create **.env** file
+7. Make sure to update the .env path in [**server.js**](server/server.js). Replace `<YOUR_PATH>` & `<PROJECT_NAME>` accordingly:
+```
+require("dotenv").config({
+  path: "<YOUR_PATH>/<PROJECT_NAME>/.env",
+});
+```
 
 
 ## Environment Variables
