@@ -1,9 +1,3 @@
-/**
- * FIXME:
- * - Make all the pages mobile responsive
- * - Add Global Sass for Link Style and Social Login style
- */
-
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Header/Navbar/Navbar";
